@@ -53,6 +53,11 @@ namespace Utils
             return _pool.Get();
         }
 
+        public void GetPoolItem(out T poolItem)
+        {
+            _pool.Get(out poolItem);
+        }
+
         public void ReturnPoolItem(T item)
         {
             _pool.Release(item);

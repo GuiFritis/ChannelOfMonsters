@@ -8,12 +8,12 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ship
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Enemies
+  - Islands
+  - Fog
   - 
   - 
   - 
@@ -40,4 +40,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2860558525
+    locked: 0
+  - name: Middleground
+    uniqueID: 2945435139
+    locked: 0
+  - name: Foreground
+    uniqueID: 232610083
+    locked: 0
+  - name: UI
+    uniqueID: 4184754849
     locked: 0

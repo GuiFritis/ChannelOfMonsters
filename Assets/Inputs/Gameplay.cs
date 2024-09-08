@@ -37,7 +37,7 @@ public partial class @Gameplay: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""MoveHorizontal"",
+                    ""name"": ""TurnShip"",
                     ""type"": ""Button"",
                     ""id"": ""3a788d1f-de62-49f9-b575-52a29c1ee7fa"",
                     ""expectedControlType"": ""Button"",
@@ -101,29 +101,29 @@ public partial class @Gameplay: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""MoveHorizontal"",
+                    ""action"": ""TurnShip"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""negative"",
+                    ""name"": ""positive"",
                     ""id"": ""0b8f2f4e-dfd0-43ab-87be-2faa92084e56"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""MoveHorizontal"",
+                    ""action"": ""TurnShip"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""positive"",
+                    ""name"": ""negative"",
                     ""id"": ""89e8571c-63d8-4007-ac64-f4d1002e7fe8"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""MoveHorizontal"",
+                    ""action"": ""TurnShip"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -179,7 +179,7 @@ public partial class @Gameplay: IInputActionCollection2, IDisposable
         // Ship
         m_Ship = asset.FindActionMap("Ship", throwIfNotFound: true);
         m_Ship_MoveForward = m_Ship.FindAction("MoveForward", throwIfNotFound: true);
-        m_Ship_MoveHorizontal = m_Ship.FindAction("MoveHorizontal", throwIfNotFound: true);
+        m_Ship_TurnShip = m_Ship.FindAction("TurnShip", throwIfNotFound: true);
         m_Ship_Nitro = m_Ship.FindAction("Nitro", throwIfNotFound: true);
         m_Ship_ShootForward = m_Ship.FindAction("ShootForward", throwIfNotFound: true);
         m_Ship_ShootRight = m_Ship.FindAction("ShootRight", throwIfNotFound: true);
@@ -246,7 +246,7 @@ public partial class @Gameplay: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Ship;
     private List<IShipActions> m_ShipActionsCallbackInterfaces = new List<IShipActions>();
     private readonly InputAction m_Ship_MoveForward;
-    private readonly InputAction m_Ship_MoveHorizontal;
+    private readonly InputAction m_Ship_TurnShip;
     private readonly InputAction m_Ship_Nitro;
     private readonly InputAction m_Ship_ShootForward;
     private readonly InputAction m_Ship_ShootRight;
@@ -256,7 +256,7 @@ public partial class @Gameplay: IInputActionCollection2, IDisposable
         private @Gameplay m_Wrapper;
         public ShipActions(@Gameplay wrapper) { m_Wrapper = wrapper; }
         public InputAction @MoveForward => m_Wrapper.m_Ship_MoveForward;
-        public InputAction @MoveHorizontal => m_Wrapper.m_Ship_MoveHorizontal;
+        public InputAction @TurnShip => m_Wrapper.m_Ship_TurnShip;
         public InputAction @Nitro => m_Wrapper.m_Ship_Nitro;
         public InputAction @ShootForward => m_Wrapper.m_Ship_ShootForward;
         public InputAction @ShootRight => m_Wrapper.m_Ship_ShootRight;
@@ -273,9 +273,9 @@ public partial class @Gameplay: IInputActionCollection2, IDisposable
             @MoveForward.started += instance.OnMoveForward;
             @MoveForward.performed += instance.OnMoveForward;
             @MoveForward.canceled += instance.OnMoveForward;
-            @MoveHorizontal.started += instance.OnMoveHorizontal;
-            @MoveHorizontal.performed += instance.OnMoveHorizontal;
-            @MoveHorizontal.canceled += instance.OnMoveHorizontal;
+            @TurnShip.started += instance.OnTurnShip;
+            @TurnShip.performed += instance.OnTurnShip;
+            @TurnShip.canceled += instance.OnTurnShip;
             @Nitro.started += instance.OnNitro;
             @Nitro.performed += instance.OnNitro;
             @Nitro.canceled += instance.OnNitro;
@@ -295,9 +295,9 @@ public partial class @Gameplay: IInputActionCollection2, IDisposable
             @MoveForward.started -= instance.OnMoveForward;
             @MoveForward.performed -= instance.OnMoveForward;
             @MoveForward.canceled -= instance.OnMoveForward;
-            @MoveHorizontal.started -= instance.OnMoveHorizontal;
-            @MoveHorizontal.performed -= instance.OnMoveHorizontal;
-            @MoveHorizontal.canceled -= instance.OnMoveHorizontal;
+            @TurnShip.started -= instance.OnTurnShip;
+            @TurnShip.performed -= instance.OnTurnShip;
+            @TurnShip.canceled -= instance.OnTurnShip;
             @Nitro.started -= instance.OnNitro;
             @Nitro.performed -= instance.OnNitro;
             @Nitro.canceled -= instance.OnNitro;
@@ -330,7 +330,7 @@ public partial class @Gameplay: IInputActionCollection2, IDisposable
     public interface IShipActions
     {
         void OnMoveForward(InputAction.CallbackContext context);
-        void OnMoveHorizontal(InputAction.CallbackContext context);
+        void OnTurnShip(InputAction.CallbackContext context);
         void OnNitro(InputAction.CallbackContext context);
         void OnShootForward(InputAction.CallbackContext context);
         void OnShootRight(InputAction.CallbackContext context);
