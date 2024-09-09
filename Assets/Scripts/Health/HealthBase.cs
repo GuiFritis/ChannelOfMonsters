@@ -37,7 +37,7 @@ public class HealthBase : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        _curHealth -= GetCalculatedDamage(damage);
+        _curHealth -= damage;
         OnDamage?.Invoke(this, damage);
         if(_curHealth <= 0 && !dead)
         {
@@ -51,25 +51,9 @@ public class HealthBase : MonoBehaviour
         Death();
     }
 
-    public void ResetResistance()
+    public void IncreaseMaxHealth(float increaseAmount)
     {
-        damageMultiplier = 1f;
-    }
-
-    private float GetCalculatedDamage(float damage)
-    {
-        return damage * damageMultiplier;
-    }
-
-    public void IncreaseResistance(float damageResistance, float duration)
-    {
-        StartCoroutine(IncreaseResistanceCoroutine(damageResistance, duration));
-    }
-
-    private IEnumerator IncreaseResistanceCoroutine(float damageResistance, float duration)
-    {
-        damageMultiplier += damageResistance;
-        yield return new WaitForSeconds(duration);
-        damageMultiplier -= damageResistance;
+        baseHealth += increaseAmount;
+        TakeDamage(-increaseAmount);
     }
 }

@@ -59,14 +59,19 @@ public class CannonGroup : MonoBehaviour
         }
     }
 
+    public bool CanBuyMoreCannons()
+    {
+        return _cannons.Count < _maxCannons;
+    }
+
     public void UpgradeDamage(float damage)
     {
-        _cannons.ForEach(c => UpgradeDamage(damage));
+        _cannons.ForEach(c => c.UpgradeDamage(damage));
     }
 
     public void UpgradeShootSpeed(float shootSpeed)
     {
-        _cannons.ForEach((c) => UpgradeShootSpeed(shootSpeed));
+        _cannons.ForEach((c) => c.UpgradeShootSpeed(shootSpeed));
     }
 
     public void UpgradeReloadSpeed(float reloadSpeed)

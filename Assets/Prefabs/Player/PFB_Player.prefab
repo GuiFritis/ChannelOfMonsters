@@ -279,22 +279,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a5c95cfc58ce7f49a37d8ec7196ba0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: {fileID: 2666582474724759172}
   _rigdbody: {fileID: 6417253284432848361}
+  _health: {fileID: 2666582474724759172}
+  _resistenceUpgrade: 0
+  _maxResistence: 0
   _frontCannons: {fileID: 7549971693813975960}
   _leftCannons: {fileID: 7781768884876471836}
   _rightCannons: {fileID: 2913176653931202697}
   _moveSpeed: 210
-  _moveSpeedUpgrade: 8
-  _maxMoveSpeed: 300
-  _turnSpeed: 20
-  _turnSpeedUpgrade: 2
-  _maxTurnSpeed: 50
+  _moveSpeedUpgrade: 9
+  _maxMoveSpeed: 345
+  _turnSpeed: 50
+  _turnSpeedUpgrade: 1
+  _maxTurnSpeed: 60
   _damage: 1
   _damageUpgrade: 0.2
   _maxDamage: 50
   _shootSpeed: 4
-  _shootSpeedUpgrade: 0.1
+  _shootSpeedUpgrade: 0.2
   _maxShootSpeed: 8
   _reloadSpeed: 3
   _ReloadSpeedUpgrade: 0.1
@@ -827,7 +829,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 641998066211612959, guid: e769648cfe4d4ca4184d50906084939d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.011
+      value: 0.045
       objectReference: {fileID: 0}
     - target: {fileID: 641998066211612959, guid: e769648cfe4d4ca4184d50906084939d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -865,6 +867,10 @@ PrefabInstance:
       propertyPath: _cannonPosition
       value: 
       objectReference: {fileID: 1010086585679832947}
+    - target: {fileID: 1109491266429907922, guid: e769648cfe4d4ca4184d50906084939d, type: 3}
+      propertyPath: _cannonsDistance
+      value: 0.18
+      objectReference: {fileID: 0}
     - target: {fileID: 6895405956618119187, guid: e769648cfe4d4ca4184d50906084939d, type: 3}
       propertyPath: m_Name
       value: RightCannnons
@@ -907,7 +913,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 641998066211612959, guid: e769648cfe4d4ca4184d50906084939d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.011
+      value: 0.045
       objectReference: {fileID: 0}
     - target: {fileID: 641998066211612959, guid: e769648cfe4d4ca4184d50906084939d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -945,6 +951,10 @@ PrefabInstance:
       propertyPath: _cannonPosition
       value: 
       objectReference: {fileID: 5839407060894930432}
+    - target: {fileID: 1109491266429907922, guid: e769648cfe4d4ca4184d50906084939d, type: 3}
+      propertyPath: _cannonsDistance
+      value: 0.18
+      objectReference: {fileID: 0}
     - target: {fileID: 6895405956618119187, guid: e769648cfe4d4ca4184d50906084939d, type: 3}
       propertyPath: m_Name
       value: LeftCannnons
@@ -1025,6 +1035,10 @@ PrefabInstance:
       propertyPath: _cannonPosition
       value: 
       objectReference: {fileID: 2385693117900259725}
+    - target: {fileID: 1109491266429907922, guid: e769648cfe4d4ca4184d50906084939d, type: 3}
+      propertyPath: _cannonsDistance
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 6895405956618119187, guid: e769648cfe4d4ca4184d50906084939d, type: 3}
       propertyPath: m_Name
       value: FrontCannons

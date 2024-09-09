@@ -44,18 +44,23 @@ namespace Enemies{
             _stm.RegisterStates(EnemyStates.MOVING, new EnemyStateMoving(this));
             _stm.RegisterStates(EnemyStates.STUNNED, new EnemyStateStunned(this));
             _stm.RegisterStates(EnemyStates.DEAD, new EnemyStateDead(this));
-            _stm.SwitchState(EnemyStates.MOVING);
         }
 
         protected virtual void Start()
         {
-            _health.ResetLife();
             _health.OnDeath += OnDeath;
+            Init();
         }
 
         protected virtual void Update()
         {
             _stm.Update();
+        }
+
+        public void Init()
+        {
+            _health.ResetLife();
+            _stm.SwitchState(EnemyStates.MOVING);
         }
 
         protected virtual void OnTriggerEnter2D(Collider2D other)

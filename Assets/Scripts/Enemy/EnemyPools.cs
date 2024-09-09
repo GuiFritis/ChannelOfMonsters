@@ -26,6 +26,7 @@ public class EnemyPools : MonoBehaviour
         }
         enemy = pooling.GetItem();
         enemy.transform.SetParent(gameObject.transform);
+        enemy.Init();
         return enemy;
     }
 }

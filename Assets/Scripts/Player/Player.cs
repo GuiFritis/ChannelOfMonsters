@@ -4,9 +4,12 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Components")]
-    [SerializeField] private HealthBase _health;
     [SerializeField] private Rigidbody2D _rigdbody;
+    [Header("Health")]
+    [SerializeField] private HealthBase _health;
     public HealthBase Health{get{return _health;}}
+    [SerializeField] private float _resistenceUpgrade;
+    [SerializeField] private float _maxResistence;
     [Header("Cannons")]
     [SerializeField] private CannonGroup _frontCannons;
     [SerializeField] private CannonGroup _leftCannons;
@@ -61,6 +64,8 @@ public class Player : MonoBehaviour
         _leftCannons.UpgradeReloadSpeed(_reloadSpeed);
         _rightCannons.UpgradeReloadSpeed(_reloadSpeed);
         _frontCannons.BuyCannon(_damage, _shootSpeed);
+        _leftCannons.BuyCannon(_damage, _shootSpeed);
+        _rightCannons.BuyCannon(_damage, _shootSpeed);
     }
 
     private void SetInputs()
@@ -123,38 +128,67 @@ public class Player : MonoBehaviour
     #endregion
 
     #region UPGRADES
-    public void UpgradeSpeed()
+    public bool UpgradeResistence()
+    {
+        _health.IncreaseMaxHealth(_resistenceUpgrade);
+        return _health.baseHealth < _maxResistence;
+    }
+
+    public bool UpgradeSpeed()
     {
         _moveSpeed += _moveSpeedUpgrade;
+        return _moveSpeed < _maxMoveSpeed;
     }
 
-    public void UpgradeTurnSpeed()
+    public bool UpgradeTurnSpeed()
     {
         _turnSpeed += _turnSpeedUpgrade;
+        return _turnSpeed < _maxTurnSpeed;
     }
 
-    public void UpgradeDamage()
+    public bool UpgradeDamage()
     {
         _damage += _damageUpgrade;
         _frontCannons.UpgradeDamage(_damage);
         _leftCannons.UpgradeDamage(_damage);
         _rightCannons.UpgradeDamage(_damage);
+        return _damage < _maxDamage;
     }
 
-    public void UpgradeShootSpeed()
+    public bool UpgradeShootSpeed()
     {
         _shootSpeed += _shootSpeedUpgrade;
         _frontCannons.UpgradeShootSpeed(_shootSpeed);
         _leftCannons.UpgradeShootSpeed(_shootSpeed);
         _rightCannons.UpgradeShootSpeed(_shootSpeed);
+        return _shootSpeed < _maxShootSpeed;
     }
 
-    public void UpgradeReloadSpeed()
+    public bool UpgradeReloadSpeed()
     {
         _reloadSpeed -= _ReloadSpeedUpgrade;
         _frontCannons.UpgradeReloadSpeed(_reloadSpeed);
         _leftCannons.UpgradeReloadSpeed(_reloadSpeed);
         _rightCannons.UpgradeReloadSpeed(_reloadSpeed);
+        return _reloadSpeed < _minReloadSpeed;
+    }
+
+    public bool BuyFrontCannon()
+    {
+        _frontCannons.BuyCannon(_damage, _shootSpeed);
+        return _frontCannons.CanBuyMoreCannons();
+    }
+
+    public bool BuyLeftCannon()
+    {
+        _leftCannons.BuyCannon(_damage, _shootSpeed);
+        return _leftCannons.CanBuyMoreCannons();
+    }
+
+    public bool BuyRightCannon()
+    {
+        _rightCannons.BuyCannon(_damage, _shootSpeed);
+        return _rightCannons.CanBuyMoreCannons();
     }
     #endregion
 }
