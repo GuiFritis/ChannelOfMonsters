@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -5,6 +6,9 @@ public class Player : MonoBehaviour
 {
     [Header("Components")]
     [SerializeField] private Rigidbody2D _rigdbody;
+    [SerializeField] private Collider2D _collider;
+    [Header("Hit")]
+    [SerializeField] private float _imuneTime;
     [Header("Health")]
     [SerializeField] private HealthBase _health;
     public HealthBase Health{get{return _health;}}
@@ -49,6 +53,10 @@ public class Player : MonoBehaviour
         if(_rigdbody != null)
         {
             _rigdbody = gameObject.GetComponent<Rigidbody2D>();
+        }
+        if(_collider != null)
+        {
+            _collider = gameObject.GetComponent<Collider2D>();
         }
     }
 
@@ -97,6 +105,21 @@ public class Player : MonoBehaviour
         }
         
     }
+
+    #region HIT
+    public void Hit(Vector3 position, float damage)
+    {
+        _collider.enabled = false;
+        _rigdbody.AddForce(2 * damage * (transform.position - position), ForceMode2D.Impulse);
+        StartCoroutine(ImuneTime());
+    }
+
+    private IEnumerator ImuneTime()
+    {
+        yield return new WaitForSeconds(_imuneTime);
+        _collider.enabled = true;
+    }
+    #endregion
 
     #region MOVE
     private void MoveForward(bool isMoving)

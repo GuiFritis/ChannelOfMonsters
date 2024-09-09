@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -14,11 +15,15 @@ namespace Enemies{
         [SerializeField] private float _damage = 2;
         [SerializeField] private int _coins = 2;
         public int Coins {get {return _coins;}}
-        public Player player;
+        private Player _player;
         private List<SpriteRenderer> _sprites;
         protected StateMachineBase<EnemyStates> _stm;
         private ObjectPool<EnemyBase> _objectPool;
         public ObjectPool<EnemyBase> ObjectPool {set => _objectPool = value;}
+        private float _baseHealth;
+        private float _baseDamage;
+        private float _baseSpeed;
+        private int _level = 0;
 
         void OnValidate()
         {
@@ -30,12 +35,15 @@ namespace Enemies{
             {
                 _sprites = GetComponentsInChildren<SpriteRenderer>().ToList();
             }
-
         }
 
         protected virtual void Awake()
         {
             InitStateMachine();
+            _health.OnDeath += OnDeath;
+            _baseDamage = _damage;
+            _baseSpeed = _speed;
+            _baseHealth = _health.baseHealth;
         }
 
         private void InitStateMachine()
@@ -46,40 +54,54 @@ namespace Enemies{
             _stm.RegisterStates(EnemyStates.DEAD, new EnemyStateDead(this));
         }
 
-        protected virtual void Start()
-        {
-            _health.OnDeath += OnDeath;
-            Init();
-        }
-
         protected virtual void Update()
         {
             _stm.Update();
         }
 
-        public void Init()
+        public void Init(Player player, Vector3 position, int level)
         {
+            this._player = player;
+            transform.position = position;
+            _level = level;
+            _damage = _baseDamage + _level * 1;
+            _speed = _baseSpeed + _level * .1f;
+            _health.baseHealth = _baseHealth + _level * .2f;
             _health.ResetLife();
             _stm.SwitchState(EnemyStates.MOVING);
         }
 
-        protected virtual void OnTriggerEnter2D(Collider2D other)
+        private void OnCollisionEnter2D(Collision2D other)
         {
-            if(other.gameObject.Equals(player.gameObject))
+            if(other.gameObject.Equals(_player.gameObject))
             {
-                player.Health.TakeDamage(_damage);
-                Health.Die();
+                _player.Health.TakeDamage(_damage);
+                _player.Hit(other.GetContact(0).point, _damage);
+                _stm.SwitchState(EnemyStates.STUNNED, 1f);
             }
         }
 
         #region STATE_MOVING
         public virtual void Move()
         {
-            transform.position += _speed * Time.deltaTime * (player.transform.position - transform.position).normalized;
-            if(player.transform.position.x < transform.position.x)
+            transform.position += _speed * Time.deltaTime * (_player.transform.position - transform.position).normalized;
+            if(_player.transform.position.x < transform.position.x)
             {
                 _sprites?.ForEach(s => s.flipX = !s.flipX);
             }
+        }
+        #endregion
+
+        #region STUNNED
+        public void Stunned(float duration)
+        {
+            StartCoroutine(StunCountdown(duration));
+        }
+
+        private IEnumerator StunCountdown(float duration)
+        {
+            yield return new WaitForSeconds(duration);
+            _stm.SwitchState(EnemyStates.MOVING);
         }
         #endregion
 
@@ -87,6 +109,7 @@ namespace Enemies{
         private void OnDeath(HealthBase hp)
         {
             _objectPool.Release(this);
+            StopAllCoroutines();
             _stm.SwitchState(EnemyStates.DEAD);
         }
         #endregion
