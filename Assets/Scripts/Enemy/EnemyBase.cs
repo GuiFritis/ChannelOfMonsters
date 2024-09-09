@@ -1,29 +1,36 @@
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Pool;
-using Utils;
 using Utils.StateMachine;
 
 namespace Enemies{
     [RequireComponent(typeof(HealthBase))]
     public class EnemyBase : MonoBehaviour
     { 
-        public HealthBase health;
+        [SerializeField] private HealthBase _health;
+        public HealthBase Health {get { return _health;}}
         [SerializeField] private float _speed = .5f;
         [SerializeField] private float _damage = 2;
         [SerializeField] private int _coins = 2;
         public int Coins {get {return _coins;}}
-        private Player player;
-        [SerializeField] private SpriteRenderer _sprite;
+        public Player player;
+        private List<SpriteRenderer> _sprites;
         protected StateMachineBase<EnemyStates> _stm;
         private ObjectPool<EnemyBase> _objectPool;
         public ObjectPool<EnemyBase> ObjectPool {set => _objectPool = value;}
 
         void OnValidate()
         {
-            health = GetComponent<HealthBase>();
-            _sprite = GetComponent<SpriteRenderer>();
+            if(_health != null)
+            {
+                _health = GetComponent<HealthBase>();
+            }
+            if(_sprites != null)
+            {
+                _sprites = GetComponentsInChildren<SpriteRenderer>().ToList();
+            }
+
         }
 
         protected virtual void Awake()
@@ -42,8 +49,8 @@ namespace Enemies{
 
         protected virtual void Start()
         {
-            health.ResetLife();
-            health.OnDeath += OnDeath;
+            _health.ResetLife();
+            _health.OnDeath += OnDeath;
         }
 
         protected virtual void Update()
@@ -56,7 +63,7 @@ namespace Enemies{
             if(other.gameObject.Equals(player.gameObject))
             {
                 player.Health.TakeDamage(_damage);
-                health.Die();
+                Health.Die();
             }
         }
 
@@ -64,6 +71,10 @@ namespace Enemies{
         public virtual void Move()
         {
             transform.position += _speed * Time.deltaTime * (player.transform.position - transform.position).normalized;
+            if(player.transform.position.x < transform.position.x)
+            {
+                _sprites?.ForEach(s => s.flipX = !s.flipX);
+            }
         }
         #endregion
 

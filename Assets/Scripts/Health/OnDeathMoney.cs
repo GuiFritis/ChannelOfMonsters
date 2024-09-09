@@ -17,7 +17,7 @@ public class OnDeathMoney : MonoBehaviour
 
     private void Start()
     {
-        _enemy.health.OnDeath += OnDeath;
+        _enemy.Health.OnDeath += OnDeath;
     }
 
     private void OnDeath(HealthBase hp)

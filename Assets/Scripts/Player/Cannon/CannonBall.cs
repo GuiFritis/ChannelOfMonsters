@@ -9,7 +9,6 @@ public class CannonBall : MonoBehaviour, IPoolItem
     [Tooltip("The time the cannon ball takes to hit the water and be disabled")]
     [SerializeField] private float _duration;
     [SerializeField] private LayerMask _hitLayer;
-    private CannonBallPool _pool;
 
     private void Update()
     {
@@ -45,13 +44,13 @@ public class CannonBall : MonoBehaviour, IPoolItem
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if ((other.gameObject.layer & (1 << _hitLayer)) != 0)
+        if ((_hitLayer.value & (1 << other.gameObject.layer)) > 0)
         {
-            if(TryGetComponent<HealthBase>(out HealthBase hp))
+            if(other.gameObject.TryGetComponent<HealthBase>(out HealthBase hp))
             {
                 hp.TakeDamage(_damage);
             }
-            _pool.ReturnPoolItem(this);
+            CannonBallPool.Instance.ReturnPoolItem(this);
         }
     }
 }

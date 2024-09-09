@@ -1,9 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Pool;
 using UnityEngine;
 using Enemies;
-using Utils.Singleton;
 
 [System.Serializable]
 public class EnemyPools : MonoBehaviour
