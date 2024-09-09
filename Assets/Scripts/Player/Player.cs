@@ -60,8 +60,7 @@ public class Player : MonoBehaviour
         _frontCannons.UpgradeReloadSpeed(_reloadSpeed);
         _leftCannons.UpgradeReloadSpeed(_reloadSpeed);
         _rightCannons.UpgradeReloadSpeed(_reloadSpeed);
-        _leftCannons.BuyCannon(_damage, _shootSpeed);
-        _rightCannons.BuyCannon(_damage, _shootSpeed);
+        _frontCannons.BuyCannon(_damage, _shootSpeed);
     }
 
     private void SetInputs()
