@@ -16,10 +16,22 @@ namespace Enemies
     {
         public EnemyStateMoving(EnemyBase enemy) : base(enemy){}
 
+        public override void OnStateEnter(params object[] objs)
+        {
+            base.OnStateEnter(objs);
+            _enemy.StartMoving();
+        }
+
         public override void OnStateStay()
         {
             base.OnStateEnter();
             _enemy.Move();
+        }
+
+        public override void OnStateExit()
+        {
+            base.OnStateExit();
+            _enemy.StopMoving();
         }
     }
 
@@ -30,7 +42,7 @@ namespace Enemies
         public override void OnStateEnter(params object[] objs)
         {
             base.OnStateEnter(objs);
-            _enemy.Stunned((int)objs[0]);
+            _enemy.Stunned((float)objs[0]);
         }
     }
 

@@ -11,11 +11,11 @@ namespace Enemies{
     { 
         [SerializeField] private HealthBase _health;
         public HealthBase Health {get { return _health;}}
-        [SerializeField] private float _speed = .5f;
+        [SerializeField] protected float _speed = .5f;
         [SerializeField] private float _damage = 2;
         [SerializeField] private int _coins = 2;
         public int Coins {get {return _coins;}}
-        private Player _player;
+        protected Player _player;
         private List<SpriteRenderer> _sprites;
         protected StateMachineBase<EnemyStates> _stm;
         private ObjectPool<EnemyBase> _objectPool;
@@ -71,6 +71,11 @@ namespace Enemies{
             _stm.SwitchState(EnemyStates.MOVING);
         }
 
+        protected void FlipSprites()
+        {
+            _sprites?.ForEach(s => s.flipX = !s.flipX);
+        }
+
         private void OnCollisionEnter2D(Collision2D other)
         {
             if(other.gameObject.Equals(_player.gameObject))
@@ -82,14 +87,11 @@ namespace Enemies{
         }
 
         #region STATE_MOVING
-        public virtual void Move()
-        {
-            transform.position += _speed * Time.deltaTime * (_player.transform.position - transform.position).normalized;
-            if(_player.transform.position.x < transform.position.x)
-            {
-                _sprites?.ForEach(s => s.flipX = !s.flipX);
-            }
-        }
+        public virtual void StartMoving(){}
+
+        public virtual void Move(){}
+
+        public virtual void StopMoving(){}
         #endregion
 
         #region STUNNED

@@ -38,7 +38,10 @@ public class Collectable : MonoBehaviour, IPoolItem
         if(other.gameObject.CompareTag("Player"))
         {
             _coins.Value += Random.Range(_minValue, _maxValue) * (_currentWave.Value + 1);
-            _pool.ReturnPoolItem(this);
+            if(_pool != null)
+            {
+                _pool.ReturnPoolItem(this);
+            }
         }
         else
         {
