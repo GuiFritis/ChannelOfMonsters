@@ -281,10 +281,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigdbody: {fileID: 6417253284432848361}
   _collider: {fileID: 6442704586844178139}
-  _imuneTime: 0
+  _imuneTime: 1
   _health: {fileID: 2666582474724759172}
-  _resistenceUpgrade: 0
-  _maxResistence: 0
+  _resistenceUpgrade: 1
+  _maxResistence: 100
   _frontCannons: {fileID: 7549971693813975960}
   _leftCannons: {fileID: 7781768884876471836}
   _rightCannons: {fileID: 2913176653931202697}

@@ -15,6 +15,7 @@ public class Collectable : MonoBehaviour, IPoolItem
     private float _speed;
     private CollectablesPool _pool;
     public CollectablesPool Pool {get { return _pool; } }
+    public System.Action<Collectable> OnCollect;
 
     private void Awake()
     {
@@ -30,7 +31,7 @@ public class Collectable : MonoBehaviour, IPoolItem
 
     private void Update()
     {
-        transform.Translate(_direction * Time.deltaTime * _speed);
+        transform.Translate(_speed * Time.deltaTime * _direction);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -38,6 +39,7 @@ public class Collectable : MonoBehaviour, IPoolItem
         if(other.gameObject.CompareTag("Player"))
         {
             _coins.Value += Random.Range(_minValue, _maxValue) * (_currentWave.Value + 1);
+            OnCollect?.Invoke(this);
             if(_pool != null)
             {
                 _pool.ReturnPoolItem(this);

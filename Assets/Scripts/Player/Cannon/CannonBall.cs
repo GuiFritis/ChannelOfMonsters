@@ -9,6 +9,13 @@ public class CannonBall : MonoBehaviour, IPoolItem
     [Tooltip("The time the cannon ball takes to hit the water and be disabled")]
     [SerializeField] private float _duration;
     [SerializeField] private LayerMask _hitLayer;
+    [SerializeField] private Animator _vfx;
+
+    private void Start()
+    {
+        _vfx = Instantiate(_vfx, transform.parent);
+        _vfx.gameObject.SetActive(false);
+    }
 
     private void Update()
     {
@@ -40,6 +47,16 @@ public class CannonBall : MonoBehaviour, IPoolItem
     private void HitTheWater()
     {
         CannonBallPool.Instance.ReturnPoolItem(this);
+        if(Physics2D.OverlapPoint(transform.position) != null)
+        {
+            PlayExplosion();
+        }
+        else
+        {
+            _vfx.transform.position = transform.position;
+            _vfx.gameObject.SetActive(true);
+            _vfx.SetTrigger("WaterSplash");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -50,7 +67,15 @@ public class CannonBall : MonoBehaviour, IPoolItem
             {
                 hp.TakeDamage(_damage);
             }
+            PlayExplosion();
             CannonBallPool.Instance.ReturnPoolItem(this);
         }
+    }
+
+    private void PlayExplosion()
+    {
+        _vfx.transform.position = transform.position;
+        _vfx.gameObject.SetActive(true);
+        _vfx.SetTrigger("Explode");
     }
 }

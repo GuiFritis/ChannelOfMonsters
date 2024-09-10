@@ -193,7 +193,7 @@ public class Player : MonoBehaviour
         _frontCannons.UpgradeReloadSpeed(_reloadSpeed);
         _leftCannons.UpgradeReloadSpeed(_reloadSpeed);
         _rightCannons.UpgradeReloadSpeed(_reloadSpeed);
-        return _reloadSpeed < _minReloadSpeed;
+        return _reloadSpeed > _minReloadSpeed;
     }
 
     public bool BuyFrontCannon()

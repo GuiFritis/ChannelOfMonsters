@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7215550512835793064}
-  - component: {fileID: -6888908573727403831}
   - component: {fileID: 1675477117240686071}
   - component: {fileID: 1045002868255675999}
   - component: {fileID: 1357230591638790591}
   - component: {fileID: 8104091200172824811}
+  - component: {fileID: -6888908573727403831}
   - component: {fileID: -2887361647358652335}
   - component: {fileID: 5329558109835318149}
   m_Layer: 6
@@ -42,22 +42,6 @@ Transform:
   - {fileID: 1305262092548407338}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-6888908573727403831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 248083776766739390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae540d9403951ea43be803a2d0231bd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destroyOnDeath: 0
-  baseHealth: 1
-  damageMultiplier: 1
-  _curHealth: 0
 --- !u!70 &1675477117240686071
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -190,6 +174,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-6888908573727403831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248083776766739390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae540d9403951ea43be803a2d0231bd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyOnDeath: 0
+  baseHealth: 2
 --- !u!114 &-2887361647358652335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,9 +229,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: -6888908573727403831}
-  _speed: 0.8
+  _speed: 1
   _damage: 2
-  _coins: 10
+  _coins: 15
   seeker: {fileID: -2887361647358652335}
   distanceToDestination: 0.1
 --- !u!1 &3122618891553550881

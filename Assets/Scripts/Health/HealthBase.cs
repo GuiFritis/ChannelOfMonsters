@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using UnityEngine;
 
 public class HealthBase : MonoBehaviour
@@ -8,8 +7,6 @@ public class HealthBase : MonoBehaviour
     public Action<HealthBase> OnDeath;
     public bool destroyOnDeath = false;
     public float baseHealth = 10f;
-    public float damageMultiplier = 1f;
-    [SerializeField]
     private float _curHealth;
     public float CurrentHealth {get => _curHealth;}
     private bool dead = false;

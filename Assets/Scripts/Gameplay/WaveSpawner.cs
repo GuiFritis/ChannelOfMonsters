@@ -18,11 +18,6 @@ public class WaveSpawner : MonoBehaviour
     private EnemyBase _currentEnemy;
     public System.Action OnWaveEnded;
 
-    private void Start()
-    {
-        StartNextWave();
-    }
-
     public void StartNextWave()
     {
         _currentWaveEnemies = _currentWaveEnemiesKilled = 0;

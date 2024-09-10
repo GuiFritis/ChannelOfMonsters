@@ -643,9 +643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyOnDeath: 0
-  baseHealth: 1
-  damageMultiplier: 1
-  _curHealth: 0
+  baseHealth: 3
 --- !u!50 &-2924418289192092871
 Rigidbody2D:
   serializedVersion: 4
@@ -716,7 +714,7 @@ MonoBehaviour:
   _health: {fileID: 7238438399676776876}
   _speed: 0.8
   _damage: 2
-  _coins: 10
+  _coins: 15
   seeker: {fileID: -4280040490606476927}
   distanceToDestination: 0.1
 --- !u!1 &7985682127565640733
