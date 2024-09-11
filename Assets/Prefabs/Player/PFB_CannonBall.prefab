@@ -139,3 +139,4 @@ MonoBehaviour:
   _hitLayer:
     serializedVersion: 2
     m_Bits: 64
+  _vfx: {fileID: 4205006191244022887, guid: ea04e92fe0eb8a84fbc0d2570ea5c401, type: 3}

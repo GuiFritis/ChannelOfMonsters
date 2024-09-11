@@ -52,6 +52,13 @@ public class WaveSpawner : MonoBehaviour
         OnWaveEnded?.Invoke();
     }
 
+    public void RespawnEnemy(EnemyBase enemy)
+    {
+        enemy.gameObject.SetActive(false);
+        enemy.transform.position = GetRandomPointInPerimeter();
+        enemy.gameObject.SetActive(true);
+    }
+
     private Vector2 GetRandomPointInPerimeter()
     {
         Vector2 point = (Vector2)player.transform.position;

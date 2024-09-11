@@ -1,21 +1,19 @@
 using UnityEngine;
-using UnityEngine.UIElements;
+using TMPro;
 
 public class Money_HUD : MonoBehaviour
 {
-    [SerializeField] private UIDocument _uiDocument;
-    private Label _moneyLabel;
-    public SOInt coinsSO;
+    [SerializeField] private TextMeshProUGUI _textMesh;
+    public SOInt soCoins;
 
     private void Start()
     {
-        coinsSO.OnValueChanged += UpdateJoyHUD;
-        _moneyLabel = _uiDocument.rootVisualElement.Q<Label>("joy");
-        UpdateJoyHUD(coinsSO.Value);
+        soCoins.OnValueChanged += UpdateJoyHUD;
+        UpdateJoyHUD(soCoins.Value);
     }
 
-    private void UpdateJoyHUD(int joy)
+    private void UpdateJoyHUD(int coins)
     {
-        _moneyLabel.text = joy.ToString();
+        _textMesh.text = coins.ToString();
     }
 }

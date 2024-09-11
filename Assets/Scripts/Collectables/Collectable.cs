@@ -14,12 +14,15 @@ public class Collectable : MonoBehaviour, IPoolItem
     private Vector2 _direction;
     private float _speed;
     private CollectablesPool _pool;
-    public CollectablesPool Pool {get { return _pool; } }
+    public CollectablesPool Pool {get { return _pool; } set { _pool = value; } }
     public System.Action<Collectable> OnCollect;
+    [SerializeField] private ParticleSystem _collectVFX;
 
     private void Awake()
     {
         _direction = new Vector2();
+        _collectVFX = Instantiate(_collectVFX);
+        _collectVFX.gameObject.SetActive(false);
     }
 
     public void Init()
@@ -43,6 +46,9 @@ public class Collectable : MonoBehaviour, IPoolItem
             if(_pool != null)
             {
                 _pool.ReturnPoolItem(this);
+                _collectVFX.transform.position = transform.position;
+                _collectVFX.gameObject.SetActive(true);
+                _collectVFX.Play();
             }
         }
         else

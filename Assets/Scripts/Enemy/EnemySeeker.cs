@@ -40,6 +40,7 @@ public class EnemySeeker : EnemyBase
 
     public override void Move()
     {
+        base.Move();
         if(_path != null)
         {
             Seek();

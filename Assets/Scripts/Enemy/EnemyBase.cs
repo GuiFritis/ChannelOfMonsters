@@ -15,7 +15,9 @@ namespace Enemies{
         [SerializeField] private float _damage = 2;
         [SerializeField] private int _coins = 2;
         public int Coins {get {return _coins;}}
+        public SOInt soCoins;
         protected Player _player;
+        [SerializeField] protected float _maxDistanceToPlayer = 5f;
         private List<SpriteRenderer> _sprites;
         protected StateMachineBase<EnemyStates> _stm;
         private ObjectPool<EnemyBase> _objectPool;
@@ -64,7 +66,7 @@ namespace Enemies{
             this._player = player;
             transform.position = position;
             _level = level;
-            _damage = _baseDamage + _level * 1;
+            _damage = _baseDamage + _level * 3;
             _speed = _baseSpeed + _level * .1f;
             _health.baseHealth = _baseHealth + _level * .2f;
             _health.ResetLife();
@@ -89,7 +91,13 @@ namespace Enemies{
         #region STATE_MOVING
         public virtual void StartMoving(){}
 
-        public virtual void Move(){}
+        public virtual void Move()
+        {
+            if(Vector2.Distance(transform.position, _player.transform.position) > _maxDistanceToPlayer)
+            {
+                GameManager.Instance.WaveSpawner.RespawnEnemy(this);
+            }
+        }
 
         public virtual void StopMoving(){}
         #endregion
@@ -110,6 +118,7 @@ namespace Enemies{
         #region DEATH
         private void OnDeath(HealthBase hp)
         {
+            soCoins.Value += _coins;
             _objectPool.Release(this);
             StopAllCoroutines();
             _stm.SwitchState(EnemyStates.DEAD);
@@ -121,6 +130,12 @@ namespace Enemies{
             MOVING,
             STUNNED,
             DEAD
+        }
+
+        protected void OnDrawGizmosSelected()
+        {
+            Gizmos.color = new Color(1f, .6f, 0f);
+            Gizmos.DrawWireSphere(transform.position, _maxDistanceToPlayer);
         }
     }
 }

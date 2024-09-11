@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class UpgradeModule : MonoBehaviour
 {
     [SerializeField] private Player _player;
+    public SOInt coins;
 
     public void UpgradeResistence(Button button)
     {

@@ -89,6 +89,11 @@ public class Player : MonoBehaviour
         _inputs.Ship.ShootRight.performed += ctx => ShootRight();
     }
 
+    private void Start()
+    {
+        _health.ResetLife();
+    }
+
     private void Update()
     {
         if(_turnDirection != 0)

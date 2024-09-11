@@ -199,6 +199,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1065559077736726600}
+        m_TargetAssemblyTypeName: UpgradeMoneyCheck, Assembly-CSharp
+        m_MethodName: Buy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1065559077736726600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd0a460783249894b8cd6f3026c1a10d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coins: {fileID: 11400000, guid: c9a473213be40444fb35b4cec3010d6e, type: 2}
+  soCoins: {fileID: 11400000, guid: c9a473213be40444fb35b4cec3010d6e, type: 2}
   _upgradeValue: 100
   _button: {fileID: 9132047245707174812}
 --- !u!1 &4780396624364285396

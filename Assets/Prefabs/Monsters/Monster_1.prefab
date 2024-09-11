@@ -99,6 +99,8 @@ GameObject:
   - component: {fileID: 8494215537206825584}
   - component: {fileID: -8636270208491375121}
   - component: {fileID: -2345737146547630643}
+  - component: {fileID: 1850875950250583520}
+  - component: {fileID: -903817740687489202}
   m_Layer: 6
   m_Name: Monster_1
   m_TagString: Untagged
@@ -277,10 +279,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: {fileID: 8494215537206825584}
   _speed: 0.65
-  _damage: 3
+  _damage: 30
   _coins: 20
+  soCoins: {fileID: 11400000, guid: c9a473213be40444fb35b4cec3010d6e, type: 2}
+  _maxDistanceToPlayer: 12.65
   seeker: {fileID: -8636270208491375121}
   distanceToDestination: 0.1
+--- !u!114 &1850875950250583520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2499533050901649867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03cfa28a91aea81418de932454348f57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 8494215537206825584}
+  _barOffsetY: 0.65
+--- !u!114 &-903817740687489202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2499533050901649867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d359a4079ad3f8c4bbab5947d39e4c81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 8494215537206825584}
+  _spawnTextOffsetY: 0.51
 --- !u!1 &5486638614766370616
 GameObject:
   m_ObjectHideFlags: 0

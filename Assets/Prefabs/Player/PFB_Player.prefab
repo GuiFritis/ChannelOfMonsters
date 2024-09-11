@@ -165,6 +165,8 @@ GameObject:
   - component: {fileID: 2666582474724759172}
   - component: {fileID: 6785870592458509336}
   - component: {fileID: 6549151398176376673}
+  - component: {fileID: 1738709024572536729}
+  - component: {fileID: 6953499030748028070}
   m_Layer: 3
   m_Name: PFB_Player
   m_TagString: Player
@@ -264,9 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyOnDeath: 0
-  baseHealth: 10
-  damageMultiplier: 1
-  _curHealth: 0
+  baseHealth: 100
 --- !u!114 &6785870592458509336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,9 +294,9 @@ MonoBehaviour:
   _turnSpeed: 50
   _turnSpeedUpgrade: 1
   _maxTurnSpeed: 60
-  _damage: 1
-  _damageUpgrade: 0.2
-  _maxDamage: 50
+  _damage: 30
+  _damageUpgrade: 3
+  _maxDamage: 48
   _shootSpeed: 4
   _shootSpeedUpgrade: 0.2
   _maxShootSpeed: 8
@@ -349,27 +349,27 @@ TrailRenderer:
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.8
+    widthMultiplier: 2
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
-        inSlope: -0.72993624
-        outSlope: -0.72993624
+        value: 0.28500062
+        inSlope: 0.32178012
+        outSlope: 0.32178012
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.2791343
+        outWeight: 0.12819088
       - serializedVersion: 3
         time: 1
-        value: 0
-        inSlope: -1.1981367
-        outSlope: -1.1981367
+        value: 0.67499924
+        inSlope: 0.48582935
+        outSlope: 0.48582935
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.13041067
+        inWeight: 0.14150941
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -393,7 +393,7 @@ TrailRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 65535
+      atime1: 53585
       atime2: 0
       atime3: 0
       atime4: 0
@@ -401,7 +401,7 @@ TrailRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_ColorSpace: -1
+      m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
@@ -416,6 +416,34 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &1738709024572536729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2626748641118509842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03cfa28a91aea81418de932454348f57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 2666582474724759172}
+  _barOffsetY: 0.75
+--- !u!114 &6953499030748028070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2626748641118509842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d359a4079ad3f8c4bbab5947d39e4c81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 2666582474724759172}
+  _spawnTextOffsetY: 0.3
 --- !u!1 &3254421103218543361
 GameObject:
   m_ObjectHideFlags: 0

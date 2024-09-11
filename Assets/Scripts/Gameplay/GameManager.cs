@@ -8,7 +8,9 @@ public class GameManager : Singleton<GameManager>
     public SOInt coinsSO;
     public SOInt currentWave;
     [SerializeField] private int _startCoins = 100;
+    [SerializeField] private int _wavesCount = 10;
     [SerializeField] private WaveSpawner _waveSpawner;
+    public WaveSpawner WaveSpawner { get { return _waveSpawner;}}
     [SerializeField] private UpgradeMode _upgradeMode;
     [SerializeField] private Player _player;
     [SerializeField] private List<Transform> _spawnPoints = new();
@@ -29,19 +31,35 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        _waveSpawner.OnWaveEnded += EnterUpgradeMode;
+        _waveSpawner.OnWaveEnded += WaveEnded;
         _upgradeMode.OnEndUpgradeTime += ExitUpgradeMode;
-        EnterUpgradeMode();
+        _player.Health.OnDeath += hp => GameOver();
+        WaveEnded();
     }
 
-    private void EnterUpgradeMode()
+    private void WaveEnded()
     {
-        _upgradeMode.EnterUpgradeMode();
+        if(currentWave.Value > _wavesCount)
+        {
+            ScreenManager.Instance.HideAllScreens();
+            //WIN
+        }
+        else
+        {
+            _upgradeMode.EnterUpgradeMode();
+        }
     }
 
     private void ExitUpgradeMode()
     {
         _waveSpawner.StartNextWave();
+    }
+
+    private void GameOver()
+    {
+        PauseGame();
+        ScreenManager.Instance.HideAllScreens();
+        ScreenManager.Instance.ShowScreen(GameplayScreenType.GAME_OVER);
     }
 
     public void PauseGame()

@@ -50,6 +50,7 @@ MonoBehaviour:
   coinsSO: {fileID: 11400000, guid: c9a473213be40444fb35b4cec3010d6e, type: 2}
   currentWave: {fileID: 11400000, guid: ff3694fdbe8dece4bbb030592764b012, type: 2}
   _startCoins: 100
+  _wavesCount: 10
   _waveSpawner: {fileID: 6680185493992212695}
   _upgradeMode: {fileID: 2428442332775551079}
   _player: {fileID: 0}
@@ -126,6 +127,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _upgradeCamera: {fileID: 0}
-  _upgradeModeDuration: 15
+  _upgradeModeDuration: 10
   _sail: {fileID: 0}
   _upgradeMenu: {fileID: 0}

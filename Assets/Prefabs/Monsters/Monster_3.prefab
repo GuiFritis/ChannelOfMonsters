@@ -471,7 +471,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1349532157
   m_SortingLayer: 2
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: b33d10d3613df1b49965982c8184155d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -499,6 +499,8 @@ GameObject:
   - component: {fileID: -2924418289192092871}
   - component: {fileID: -4280040490606476927}
   - component: {fileID: -926373735710267837}
+  - component: {fileID: -4003132257339881694}
+  - component: {fileID: -4370999374310199310}
   m_Layer: 6
   m_Name: Monster_3
   m_TagString: Untagged
@@ -713,10 +715,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: {fileID: 7238438399676776876}
   _speed: 0.8
-  _damage: 2
+  _damage: 24
   _coins: 15
+  soCoins: {fileID: 11400000, guid: c9a473213be40444fb35b4cec3010d6e, type: 2}
+  _maxDistanceToPlayer: 12.65
   seeker: {fileID: -4280040490606476927}
   distanceToDestination: 0.1
+--- !u!114 &-4003132257339881694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7183033367653688343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03cfa28a91aea81418de932454348f57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 7238438399676776876}
+  _barOffsetY: 0.22
+--- !u!114 &-4370999374310199310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7183033367653688343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d359a4079ad3f8c4bbab5947d39e4c81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 7238438399676776876}
+  _spawnTextOffsetY: 0
 --- !u!1 &7985682127565640733
 GameObject:
   m_ObjectHideFlags: 0

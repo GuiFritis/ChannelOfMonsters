@@ -53,8 +53,9 @@ public class UpgradeMode : MonoBehaviour
         ExitUpgradeMode();
     }
 
-    private void ExitUpgradeMode()
+    public void ExitUpgradeMode()
     {
+        StopAllCoroutines();
         _upgradeCamera.enabled = false;
         _buttonImages.ForEach(i => i.image.DOColor(Color.clear, 1f));
         _buttonTexts.ForEach(t => t.DOColor(Color.clear, 1f));

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using Utils;
 
@@ -13,7 +14,7 @@ public class CannonBall : MonoBehaviour, IPoolItem
 
     private void Start()
     {
-        _vfx = Instantiate(_vfx, transform.parent);
+        _vfx = Instantiate(_vfx);
         _vfx.gameObject.SetActive(false);
     }
 
@@ -32,7 +33,6 @@ public class CannonBall : MonoBehaviour, IPoolItem
 
     public void ReturnToPool()
     {
-        CancelInvoke();
         _speed = _damage = 0f;
         gameObject.SetActive(false);
     }
@@ -41,11 +41,12 @@ public class CannonBall : MonoBehaviour, IPoolItem
     {
         _damage = damage;
         _speed = speed;
-        Invoke(nameof(HitTheWater), _duration);
+        StartCoroutine(HitTheWater());
     }
 
-    private void HitTheWater()
+    private IEnumerator HitTheWater()
     {
+        yield return new WaitForSeconds(_duration);
         CannonBallPool.Instance.ReturnPoolItem(this);
         if(Physics2D.OverlapPoint(transform.position) != null)
         {
@@ -67,6 +68,7 @@ public class CannonBall : MonoBehaviour, IPoolItem
             {
                 hp.TakeDamage(_damage);
             }
+            StopAllCoroutines();
             PlayExplosion();
             CannonBallPool.Instance.ReturnPoolItem(this);
         }
