@@ -13,11 +13,11 @@ public class UpgradeMode : MonoBehaviour
     [SerializeField] private float _upgradeModeDuration;
     [SerializeField] private SpriteRenderer _sail;
     [SerializeField] private GameObject _upgradeMenu;
-    private List<ImageColor> _buttonImages;
-    private List<TextMeshProUGUI> _buttonTexts;
+    private List<ImageColor> _buttonImages = new();
+    private List<TextMeshProUGUI> _buttonTexts = new();
     public System.Action OnEndUpgradeTime;
 
-    private void Start()
+    private void Awake()
     {
         _buttonImages = new();
         foreach(Image img in _upgradeMenu.GetComponentsInChildren<Image>())

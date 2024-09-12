@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Pool;
+using Utils;
 using Utils.StateMachine;
 
 namespace Enemies{
@@ -11,6 +12,7 @@ namespace Enemies{
     { 
         [SerializeField] private HealthBase _health;
         public HealthBase Health {get { return _health;}}
+        [SerializeField] private TrailRenderer _trail;
         [SerializeField] protected float _speed = .5f;
         [SerializeField] private float _damage = 2;
         [SerializeField] private int _coins = 2;
@@ -18,7 +20,6 @@ namespace Enemies{
         public SOInt soCoins;
         protected Player _player;
         [SerializeField] protected float _maxDistanceToPlayer = 5f;
-        private List<SpriteRenderer> _sprites;
         protected StateMachineBase<EnemyStates> _stm;
         private ObjectPool<EnemyBase> _objectPool;
         public ObjectPool<EnemyBase> ObjectPool {set => _objectPool = value;}
@@ -29,13 +30,13 @@ namespace Enemies{
 
         void OnValidate()
         {
-            if(_health != null)
+            if(_health == null)
             {
                 _health = GetComponent<HealthBase>();
             }
-            if(_sprites != null)
+            if(_trail == null)
             {
-                _sprites = GetComponentsInChildren<SpriteRenderer>().ToList();
+                _trail = GetComponent<TrailRenderer>();
             }
         }
 
@@ -63,19 +64,14 @@ namespace Enemies{
 
         public void Init(Player player, Vector3 position, int level)
         {
-            this._player = player;
+            _player = player;
             transform.position = position;
             _level = level;
-            _damage = _baseDamage + _level * 3;
-            _speed = _baseSpeed + _level * .1f;
-            _health.baseHealth = _baseHealth + _level * .2f;
+            _damage = _baseDamage + (_level * _baseDamage/10f);
+            _speed = _baseSpeed + (_level * _baseSpeed/8f);
+            _health.baseHealth = _baseHealth + (_level * _baseHealth/8f);
             _health.ResetLife();
             _stm.SwitchState(EnemyStates.MOVING);
-        }
-
-        protected void FlipSprites()
-        {
-            _sprites?.ForEach(s => s.flipX = !s.flipX);
         }
 
         private void OnCollisionEnter2D(Collision2D other)
@@ -97,6 +93,21 @@ namespace Enemies{
             {
                 GameManager.Instance.WaveSpawner.RespawnEnemy(this);
             }
+        }
+
+        public void Reposition(Vector2 position)
+        {
+            StartCoroutine(Repositioning(position));
+        }
+
+        private IEnumerator Repositioning(Vector2 position)
+        {
+            _trail.enabled = false;
+            _trail.Clear();
+            _stm.SwitchState(EnemyStates.STUNNED, .1f);
+            yield return new WaitForEndOfFrame();
+            transform.position = position;
+            _trail.enabled = true;
         }
 
         public virtual void StopMoving(){}

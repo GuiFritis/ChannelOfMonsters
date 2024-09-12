@@ -7,83 +7,83 @@ public class UpgradeModule : MonoBehaviour
     [SerializeField] private Player _player;
     public SOInt coins;
 
-    public void UpgradeResistence(Button button)
+    public void UpgradeResistence(UpgradeButton button)
     {
         if(!_player.UpgradeResistence())
         {
-            button.interactable = false;
+            button.MaxLevel();
             button.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "Max Level";
         }
     }
 
-    public void UpgradeDamage(Button button)
+    public void UpgradeDamage(UpgradeButton button)
     {
         if(!_player.UpgradeDamage())
         {
-            button.interactable = false;
+            button.MaxLevel();
             button.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "Max Level";
         }
     }
 
-    public void UpgradeSpeed(Button button)
+    public void UpgradeSpeed(UpgradeButton button)
     {
         if(!_player.UpgradeSpeed())
         {
-            button.interactable = false;
+            button.MaxLevel();
             button.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "Max Level";
         }
     }
 
-    public void UpgradeTurnSpeed(Button button)
+    public void UpgradeTurnSpeed(UpgradeButton button)
     {
         if(!_player.UpgradeTurnSpeed())
         {
-            button.interactable = false;
+            button.MaxLevel();
             button.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "Max Level";
         }
     }
 
-    public void UpgradeShootSpeed(Button button)
+    public void UpgradeShootSpeed(UpgradeButton button)
     {
         if(!_player.UpgradeShootSpeed())
         {
-            button.interactable = false;
+            button.MaxLevel();
             button.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "Max Level";
         }
     }
 
-    public void UpgradeReloadSpeed(Button button)
+    public void UpgradeReloadSpeed(UpgradeButton button)
     {
         if(!_player.UpgradeReloadSpeed())
         {
-            button.interactable = false;
+            button.MaxLevel();
             button.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "Max Level";
         }
     }
 
-    public void BuyFrontCannon(Button button)
+    public void BuyFrontCannon(UpgradeButton button)
     {
         if(!_player.BuyFrontCannon())
         {
-            button.interactable = false;
+            button.MaxLevel();
             button.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "Max Cannons";
         }
     }
 
-    public void BuyLeftCannon(Button button)
+    public void BuyLeftCannon(UpgradeButton button)
     {
         if(!_player.BuyLeftCannon())
         {
-            button.interactable = false;
+            button.MaxLevel();
             button.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "Max Cannons";
         }
     }
 
-    public void BuyRightCannon(Button button)
+    public void BuyRightCannon(UpgradeButton button)
     {
         if(!_player.BuyRightCannon())
         {
-            button.interactable = false;
+            button.MaxLevel();
             button.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "Max Cannons";
         }
     }

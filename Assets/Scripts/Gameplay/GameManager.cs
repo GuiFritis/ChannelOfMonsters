@@ -11,6 +11,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private int _wavesCount = 10;
     [SerializeField] private WaveSpawner _waveSpawner;
     public WaveSpawner WaveSpawner { get { return _waveSpawner;}}
+    [SerializeField] private Storm _storm;
     [SerializeField] private UpgradeMode _upgradeMode;
     [SerializeField] private Player _player;
     [SerializeField] private List<Transform> _spawnPoints = new();
@@ -25,12 +26,12 @@ public class GameManager : Singleton<GameManager>
     {
         base.Awake();
         currentWave.Value = -1;
-        coinsSO.Value = _startCoins;
         _player.transform.position = _spawnPoints.GetRandom().position;
     }
 
     private void Start()
     {
+        coinsSO.Value = _startCoins;
         _waveSpawner.OnWaveEnded += WaveEnded;
         _upgradeMode.OnEndUpgradeTime += ExitUpgradeMode;
         _player.Health.OnDeath += hp => GameOver();
@@ -46,13 +47,15 @@ public class GameManager : Singleton<GameManager>
         }
         else
         {
+            _player.DisableControls();
             _upgradeMode.EnterUpgradeMode();
         }
     }
 
     private void ExitUpgradeMode()
     {
-        _waveSpawner.StartNextWave();
+        _player.EnableControls();
+        _storm.StartStorm();
     }
 
     private void GameOver()

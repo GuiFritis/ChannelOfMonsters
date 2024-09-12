@@ -27,7 +27,7 @@ public class WaveSpawner : MonoBehaviour
 
     private IEnumerator WaveRunning()
     {
-        while(_currentWaveEnemies < _StartEnemiesCount + (_currentWave.Value * 5))
+        while(_currentWaveEnemies < _StartEnemiesCount + (_currentWave.Value * 4))
         {
             _currentEnemy = _enemyPools.GetEnemy(_enemies.GetRandom());
             _currentEnemy.Init(player, GetRandomPointInPerimeter(), _currentWave.Value);
@@ -54,23 +54,24 @@ public class WaveSpawner : MonoBehaviour
 
     public void RespawnEnemy(EnemyBase enemy)
     {
-        enemy.gameObject.SetActive(false);
-        enemy.transform.position = GetRandomPointInPerimeter();
-        enemy.gameObject.SetActive(true);
+        enemy.Reposition(GetRandomPointInPerimeter());
     }
 
     private Vector2 GetRandomPointInPerimeter()
     {
         Vector2 point = (Vector2)player.transform.position;
-        if(Random.Range(0, 2) == 0)
+        while(Physics2D.OverlapPoint(point) != null)
         {
-            point.x += _spawnArea.x/2 * (Random.Range(0, 2)==0?1:-1);
-            point.y += Random.Range(0, _spawnArea.y/2) * (Random.Range(0, 2)==0?1:-1);
-        }
-        else
-        {
-            point.x += Random.Range(0, _spawnArea.x/2) * (Random.Range(0, 2)==0?1:-1);
-            point.y += _spawnArea.y/2 * (Random.Range(0, 2)==0?1:-1);
+            if(Random.Range(0, 2) == 0)
+            {
+                point.x += _spawnArea.x/2 * (Random.Range(0, 2)==0?1:-1);
+                point.y += Random.Range(0, _spawnArea.y/2) * (Random.Range(0, 2)==0?1:-1);
+            }
+            else
+            {
+                point.x += Random.Range(0, _spawnArea.x/2) * (Random.Range(0, 2)==0?1:-1);
+                point.y += _spawnArea.y/2 * (Random.Range(0, 2)==0?1:-1);
+            }
         }
         return point;
     }

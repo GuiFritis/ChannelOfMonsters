@@ -5,6 +5,7 @@ using UnityEngine;
 public class Cannon : MonoBehaviour
 {
     [SerializeField] private CannonBall _cannonBallPFB;
+    [SerializeField] private ParticleSystem _shootVFX;
     private CannonBall _shot;
     private float _shootSpeed;
     private float _damage;
@@ -17,6 +18,7 @@ public class Cannon : MonoBehaviour
             _shot.transform.position = transform.position;
             _shot.transform.rotation = transform.rotation;
             _shot.Shoot(_damage, _shootSpeed);
+            _shootVFX.Play();
         }
     }
 

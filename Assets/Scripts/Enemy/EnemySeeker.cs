@@ -45,10 +45,6 @@ public class EnemySeeker : EnemyBase
         {
             Seek();
             transform.position += _speed * Time.deltaTime * (_path.vectorPath[_currentWaypoint] - transform.position).normalized;
-            if(_path.vectorPath[_currentWaypoint].x < transform.position.x)
-            {
-                FlipSprites();
-            }
         }
     }
 

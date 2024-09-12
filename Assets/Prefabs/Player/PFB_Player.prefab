@@ -281,28 +281,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigdbody: {fileID: 6417253284432848361}
   _collider: {fileID: 6442704586844178139}
-  _imuneTime: 1
+  _sprites:
+  - {fileID: 4114239030833945761}
+  - {fileID: 1080183086785012645}
+  - {fileID: 263709752114205097}
+  - {fileID: 5990469431387921683}
+  - {fileID: 3829290520535322346}
+  _imuneTime: 2
+  _imuneLayers:
+    serializedVersion: 2
+    m_Bits: 64
   _health: {fileID: 2666582474724759172}
-  _resistenceUpgrade: 1
-  _maxResistence: 100
+  _resistenceUpgrade: 14
+  _maxResistence: 198
   _frontCannons: {fileID: 7549971693813975960}
   _leftCannons: {fileID: 7781768884876471836}
   _rightCannons: {fileID: 2913176653931202697}
-  _moveSpeed: 210
-  _moveSpeedUpgrade: 9
-  _maxMoveSpeed: 345
+  _moveSpeed: 220
+  _moveSpeedUpgrade: 30
+  _maxMoveSpeed: 440
   _turnSpeed: 50
-  _turnSpeedUpgrade: 1
-  _maxTurnSpeed: 60
+  _turnSpeedUpgrade: 3
+  _maxTurnSpeed: 65
   _damage: 30
   _damageUpgrade: 3
   _maxDamage: 48
   _shootSpeed: 4
-  _shootSpeedUpgrade: 0.2
-  _maxShootSpeed: 8
+  _shootSpeedUpgrade: 0.3
+  _maxShootSpeed: 6.1
   _reloadSpeed: 3
-  _ReloadSpeedUpgrade: 0.1
-  _minReloadSpeed: 1
+  _ReloadSpeedUpgrade: 0.3
+  _minReloadSpeed: 0.9
 --- !u!96 &6549151398176376673
 TrailRenderer:
   serializedVersion: 3
@@ -894,6 +903,10 @@ PrefabInstance:
       value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 1109491266429907922, guid: e769648cfe4d4ca4184d50906084939d, type: 3}
+      propertyPath: _maxCannons
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1109491266429907922, guid: e769648cfe4d4ca4184d50906084939d, type: 3}
       propertyPath: _cannonPosition
       value: 
       objectReference: {fileID: 1010086585679832947}
@@ -976,6 +989,10 @@ PrefabInstance:
     - target: {fileID: 641998066211612959, guid: e769648cfe4d4ca4184d50906084939d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 1109491266429907922, guid: e769648cfe4d4ca4184d50906084939d, type: 3}
+      propertyPath: _maxCannons
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1109491266429907922, guid: e769648cfe4d4ca4184d50906084939d, type: 3}
       propertyPath: _cannonPosition

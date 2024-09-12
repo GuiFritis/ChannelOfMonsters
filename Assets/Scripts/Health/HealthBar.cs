@@ -17,7 +17,7 @@ public class HealthBar : MonoBehaviour
         }
     }
 
-    private void OnEnable()
+    private void Start()
     {
         if(HealthBar_Pooling.Instance == null)
         {

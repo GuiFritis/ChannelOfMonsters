@@ -1,4 +1,7 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -7,8 +10,10 @@ public class Player : MonoBehaviour
     [Header("Components")]
     [SerializeField] private Rigidbody2D _rigdbody;
     [SerializeField] private Collider2D _collider;
+    [SerializeField] private SpriteRenderer[] _sprites;
     [Header("Hit")]
     [SerializeField] private float _imuneTime;
+    [SerializeField] private LayerMask _imuneLayers;
     [Header("Health")]
     [SerializeField] private HealthBase _health;
     public HealthBase Health{get{return _health;}}
@@ -50,13 +55,17 @@ public class Player : MonoBehaviour
         {
             _health = gameObject.GetComponent<HealthBase>();
         }
-        if(_rigdbody != null)
+        if(_rigdbody == null)
         {
             _rigdbody = gameObject.GetComponent<Rigidbody2D>();
         }
-        if(_collider != null)
+        if(_collider == null)
         {
             _collider = gameObject.GetComponent<Collider2D>();
+        }
+        if(_sprites == null)
+        {
+            _sprites = GetComponentsInChildren<SpriteRenderer>();
         }
     }
 
@@ -89,6 +98,16 @@ public class Player : MonoBehaviour
         _inputs.Ship.ShootRight.performed += ctx => ShootRight();
     }
 
+    public void EnableControls()
+    {
+        _inputs.Enable();
+    }
+
+    public void DisableControls()
+    {
+        _inputs.Disable();
+    }
+
     private void Start()
     {
         _health.ResetLife();
@@ -114,15 +133,19 @@ public class Player : MonoBehaviour
     #region HIT
     public void Hit(Vector3 position, float damage)
     {
-        _collider.enabled = false;
-        _rigdbody.AddForce(2 * damage * (transform.position - position), ForceMode2D.Impulse);
+        _collider.excludeLayers = _imuneLayers;
+        _rigdbody.AddForce(.4f * damage * (transform.position - position), ForceMode2D.Impulse);
+        foreach (var s in _sprites)
+        {
+            s.DOFade(.3f, _imuneTime/6).SetLoops(6, LoopType.Yoyo);
+        }
         StartCoroutine(ImuneTime());
     }
 
     private IEnumerator ImuneTime()
     {
         yield return new WaitForSeconds(_imuneTime);
-        _collider.enabled = true;
+        _collider.excludeLayers = 0;
     }
     #endregion
 
