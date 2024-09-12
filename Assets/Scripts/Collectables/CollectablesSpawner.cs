@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using Utils;
 
@@ -31,7 +30,7 @@ public class CollectablesSpawner : MonoBehaviour
         if(_collectablesCount < _maxCollectables)
         {
             _collectable = _pool.GetPoolItem();
-            _collectable.transform.position = GameManager.Instance.SpawnPoints.GetRandom().position;
+            _collectable.transform.position = WaveSpawner.Instance.GetRandomPointInPerimeter();
             _collectable.Init();
             _collectable.OnCollect += Collected;
             _collectablesCount++;

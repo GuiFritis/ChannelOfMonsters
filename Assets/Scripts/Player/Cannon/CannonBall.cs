@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Utils;
 
@@ -11,6 +12,8 @@ public class CannonBall : MonoBehaviour, IPoolItem
     [SerializeField] private float _duration;
     [SerializeField] private LayerMask _hitLayer;
     [SerializeField] private Animator _vfx;
+    [SerializeField] private List<AudioClip> _sfxExplosion;
+    [SerializeField] private List<AudioClip> _sfxWaterSplash;
 
     private void Start()
     {
@@ -54,9 +57,7 @@ public class CannonBall : MonoBehaviour, IPoolItem
         }
         else
         {
-            _vfx.transform.position = transform.position;
-            _vfx.gameObject.SetActive(true);
-            _vfx.SetTrigger("WaterSplash");
+            PlayWaterSplash();
         }
     }
 
@@ -74,10 +75,19 @@ public class CannonBall : MonoBehaviour, IPoolItem
         }
     }
 
+    private void PlayWaterSplash()
+    {
+        _vfx.transform.position = transform.position;
+        _vfx.gameObject.SetActive(true);
+        _vfx.SetTrigger("WaterSplash");
+        SFX_Pool.Instance.Play(_sfxWaterSplash.GetRandom(), .5f);
+    }
+
     private void PlayExplosion()
     {
         _vfx.transform.position = transform.position;
         _vfx.gameObject.SetActive(true);
         _vfx.SetTrigger("Explode");
+        SFX_Pool.Instance.Play(_sfxExplosion.GetRandom());
     }
 }

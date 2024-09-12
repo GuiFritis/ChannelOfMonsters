@@ -140,3 +140,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _vfx: {fileID: 4205006191244022887, guid: ea04e92fe0eb8a84fbc0d2570ea5c401, type: 3}
+  _sfxExplosion:
+  - {fileID: 8300000, guid: fc96116dc3c141440aabb5605744fea2, type: 3}
+  - {fileID: 8300000, guid: c401d00c96b512e488d2e3bf5d111509, type: 3}
+  - {fileID: 8300000, guid: c2153dcd0edd22f40bdebf613271bae7, type: 3}
+  - {fileID: 8300000, guid: 8b3f676fe7b41044495a2964396b8ba3, type: 3}
+  - {fileID: 8300000, guid: fd706038486fee041947a774223dc22e, type: 3}
+  - {fileID: 8300000, guid: c1f8c36ebdb20024ea8a59ec457d582c, type: 3}
+  - {fileID: 8300000, guid: f0bba60dd1813bd40af826dbaa99b983, type: 3}
+  - {fileID: 8300000, guid: d4aee29185389894b9cc0d8873904a49, type: 3}
+  _sfxWaterSplash:
+  - {fileID: 8300000, guid: 2e4290640786e7646a14e193c73d4f7a, type: 3}
+  - {fileID: 8300000, guid: ac35f55cf4b14e04e944253512abb612, type: 3}
+  - {fileID: 8300000, guid: b09ce942d8d24184c8a0de865e77203a, type: 3}
+  - {fileID: 8300000, guid: 25ade000af7170143b6d31a8df5d5ee6, type: 3}
+  - {fileID: 8300000, guid: 89291fc143e1be04589c122c4b6be704, type: 3}
+  - {fileID: 8300000, guid: 820ed1084d201f049932311db8f961a1, type: 3}
+  - {fileID: 8300000, guid: af6b060a86b92d949a81e383b46c84dd, type: 3}
+  - {fileID: 8300000, guid: 41933c77bd95c38478e9c33b0a252da3, type: 3}

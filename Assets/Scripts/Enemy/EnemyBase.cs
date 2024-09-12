@@ -91,7 +91,7 @@ namespace Enemies{
         {
             if(Vector2.Distance(transform.position, _player.transform.position) > _maxDistanceToPlayer)
             {
-                GameManager.Instance.WaveSpawner.RespawnEnemy(this);
+                WaveSpawner.Instance.RespawnEnemy(this);
             }
         }
 

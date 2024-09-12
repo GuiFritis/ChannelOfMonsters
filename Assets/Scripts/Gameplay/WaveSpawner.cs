@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using Enemies;
 using UnityEngine;
 using Utils;
+using Utils.Singleton;
 
-public class WaveSpawner : MonoBehaviour
+public class WaveSpawner : Singleton<WaveSpawner>
 {
     [SerializeField] private SOInt _currentWave;
     [SerializeField] private float _StartEnemiesCount;
@@ -57,7 +58,7 @@ public class WaveSpawner : MonoBehaviour
         enemy.Reposition(GetRandomPointInPerimeter());
     }
 
-    private Vector2 GetRandomPointInPerimeter()
+    public Vector2 GetRandomPointInPerimeter()
     {
         Vector2 point = (Vector2)player.transform.position;
         while(Physics2D.OverlapPoint(point) != null)
