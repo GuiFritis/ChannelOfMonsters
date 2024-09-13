@@ -294,6 +294,7 @@ MonoBehaviour:
   _health: {fileID: 2666582474724759172}
   _resistenceUpgrade: 14
   _maxResistence: 198
+  _sfxSinking: {fileID: 8300000, guid: 09c38d9dc79c4a448a6ac780b3755fcc, type: 3}
   _frontCannons: {fileID: 7549971693813975960}
   _leftCannons: {fileID: 7781768884876471836}
   _rightCannons: {fileID: 2913176653931202697}

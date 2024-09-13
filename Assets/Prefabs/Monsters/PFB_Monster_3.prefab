@@ -715,6 +715,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: {fileID: 7238438399676776876}
   _trail: {fileID: 945042037042803865}
+  _sfxAttack:
+  - {fileID: 8300000, guid: ac6034ade498bb94b87620cdf6eac48b, type: 3}
   _speed: 0.8
   _damage: 24
   _coins: 15

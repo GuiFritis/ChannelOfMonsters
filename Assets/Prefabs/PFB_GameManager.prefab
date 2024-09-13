@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4971947419577081463}
   - component: {fileID: 7709995195358403363}
   - component: {fileID: 6507454261743177733}
-  - component: {fileID: 2428442332775551079}
   m_Layer: 0
   m_Name: PFB_GameManager
   m_TagString: Untagged
@@ -52,7 +51,8 @@ MonoBehaviour:
   _wavesCount: 10
   _waveSpawner: {fileID: 0}
   _storm: {fileID: 0}
-  _upgradeMode: {fileID: 2428442332775551079}
+  _upgradeMode: {fileID: 0}
+  _hideWhileUpgrade: {fileID: 0}
   _player: {fileID: 0}
   _spawnPoints:
   - {fileID: 0}
@@ -92,19 +92,3 @@ MonoBehaviour:
   - enemy_pfb: {fileID: -2345737146547630643, guid: fba2d0eb78e9b7648b0dcf98def97f54, type: 3}
   - enemy_pfb: {fileID: 5329558109835318149, guid: 11963d419a3689747a5bb1f4621ae14d, type: 3}
   - enemy_pfb: {fileID: -926373735710267837, guid: 97215213b0ed2ca4089ea3b47229e75a, type: 3}
---- !u!114 &2428442332775551079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8975647248177282486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fadc380d38ce67f438886b1805c4e5f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _upgradeCamera: {fileID: 0}
-  _upgradeModeDuration: 10
-  _sail: {fileID: 0}
-  _upgradeMenu: {fileID: 0}

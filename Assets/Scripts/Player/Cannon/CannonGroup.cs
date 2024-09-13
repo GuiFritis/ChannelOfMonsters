@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using Utils;
 
 public class CannonGroup : MonoBehaviour
 {
@@ -11,7 +11,9 @@ public class CannonGroup : MonoBehaviour
     [SerializeField] private float _cannonsDistance;
     [SerializeField] private float _maxCannons;
     [SerializeField] private float _reloadSpeed = 3f;
+    [SerializeField] private List<AudioClip> _shootSFX;
     private float _reloadHelper = 0f;
+    public System.Action<float> ReloadTick;
 
     private void Start()
     {
@@ -23,6 +25,7 @@ public class CannonGroup : MonoBehaviour
         if(_cannons.Count > 0 && _reloadHelper >= _reloadSpeed)
         {
             _cannons.ForEach(c => c.Shoot());
+            SFX_Pool.Instance.Play(_shootSFX.GetRandom());
             _reloadHelper = 0f;
             StartCoroutine(ReloadCoroutine());
         }
@@ -32,8 +35,9 @@ public class CannonGroup : MonoBehaviour
     {
         while(_reloadHelper < _reloadSpeed)
         {
-            yield return new WaitForSeconds(.1f);
-            _reloadHelper += .1f;
+            yield return new WaitForSeconds(.05f);
+            _reloadHelper += .05f;
+            ReloadTick?.Invoke(_reloadHelper/_reloadSpeed);
         }
     }
 

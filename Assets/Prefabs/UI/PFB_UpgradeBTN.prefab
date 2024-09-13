@@ -77,6 +77,7 @@ GameObject:
   - component: {fileID: 484731343635604482}
   - component: {fileID: 9132047245707174812}
   - component: {fileID: 1065559077736726600}
+  - component: {fileID: -913057924656046017}
   m_Layer: 5
   m_Name: PFB_UpgradeBTN
   m_TagString: Untagged
@@ -187,13 +188,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UpgradeModule, Assembly-CSharp
-        m_MethodName: UpgradeDamage
-        m_Mode: 2
+      - m_Target: {fileID: -913057924656046017}
+        m_TargetAssemblyTypeName: PlayAudio, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 9132047245707174812}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -227,6 +228,20 @@ MonoBehaviour:
   _upgradeValue: 100
   _button: {fileID: 9132047245707174812}
   _priceTag: {fileID: 6410343465308589232}
+--- !u!114 &-913057924656046017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2320436535022840135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d1cf4827c582894f84c5ed9d9bdae80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sfx:
+  - {fileID: 8300000, guid: 82ef6eaed5d940240a305b0266087f97, type: 3}
 --- !u!1 &4780396624364285396
 GameObject:
   m_ObjectHideFlags: 0

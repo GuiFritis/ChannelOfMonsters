@@ -13,6 +13,7 @@ namespace Enemies{
         [SerializeField] private HealthBase _health;
         public HealthBase Health {get { return _health;}}
         [SerializeField] private TrailRenderer _trail;
+        [SerializeField] private List<AudioClip> _sfxAttack;
         [SerializeField] protected float _speed = .5f;
         [SerializeField] private float _damage = 2;
         [SerializeField] private int _coins = 2;
@@ -81,6 +82,7 @@ namespace Enemies{
                 _player.Health.TakeDamage(_damage);
                 _player.Hit(other.GetContact(0).point, _damage);
                 _stm.SwitchState(EnemyStates.STUNNED, 1f);
+                SFX_Pool.Instance.Play(_sfxAttack.GetRandom());
             }
         }
 

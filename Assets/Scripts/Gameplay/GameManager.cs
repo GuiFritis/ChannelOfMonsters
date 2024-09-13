@@ -13,6 +13,7 @@ public class GameManager : Singleton<GameManager>
     public WaveSpawner WaveSpawner { get { return _waveSpawner;}}
     [SerializeField] private Storm _storm;
     [SerializeField] private UpgradeMode _upgradeMode;
+    [SerializeField] private GameObject _hideWhileUpgrade;
     [SerializeField] private Player _player;
     [SerializeField] private List<Transform> _spawnPoints = new();
     public List<Transform> SpawnPoints { get { return _spawnPoints; } }
@@ -49,6 +50,7 @@ public class GameManager : Singleton<GameManager>
         {
             _player.DisableControls();
             _upgradeMode.EnterUpgradeMode();
+            _hideWhileUpgrade.SetActive(false);
         }
     }
 
@@ -56,6 +58,7 @@ public class GameManager : Singleton<GameManager>
     {
         _player.EnableControls();
         _storm.StartStorm();
+        _hideWhileUpgrade.SetActive(true);
     }
 
     private void GameOver()

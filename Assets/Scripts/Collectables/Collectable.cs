@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using Utils;
 
@@ -17,6 +18,7 @@ public class Collectable : MonoBehaviour, IPoolItem
     public CollectablesPool Pool {get { return _pool; } set { _pool = value; } }
     public System.Action<Collectable> OnCollect;
     [SerializeField] private ParticleSystem _collectVFX;
+    [SerializeField] private List<AudioClip> _sfxCoins;
 
     private void Awake()
     {
@@ -49,6 +51,7 @@ public class Collectable : MonoBehaviour, IPoolItem
                 _collectVFX.transform.position = transform.position;
                 _collectVFX.gameObject.SetActive(true);
                 _collectVFX.Play();
+                SFX_Pool.Instance.Play(_sfxCoins.GetRandom());
             }
         }
         else

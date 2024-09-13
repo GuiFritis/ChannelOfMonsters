@@ -12,7 +12,7 @@ public class UpgradeMode : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera _upgradeCamera;
     [SerializeField] private float _upgradeModeDuration;
     [SerializeField] private SpriteRenderer _sail;
-    [SerializeField] private GameObject _upgradeMenu;
+    [SerializeField] private MusicPlayer _musicPlayer;
     private List<ImageColor> _buttonImages = new();
     private List<TextMeshProUGUI> _buttonTexts = new();
     public System.Action OnEndUpgradeTime;
@@ -20,7 +20,7 @@ public class UpgradeMode : MonoBehaviour
     private void Awake()
     {
         _buttonImages = new();
-        foreach(Image img in _upgradeMenu.GetComponentsInChildren<Image>())
+        foreach(Image img in GetComponentsInChildren<Image>())
         {
             _buttonImages.Add(new ImageColor{
                 image = img,
@@ -28,15 +28,17 @@ public class UpgradeMode : MonoBehaviour
             });
             img.color = Color.clear;
         }
-        _buttonTexts = _upgradeMenu.GetComponentsInChildren<TextMeshProUGUI>().ToList();
+        _buttonTexts = GetComponentsInChildren<TextMeshProUGUI>().ToList();
         _buttonTexts.ForEach(t => t.color = Color.clear);
+        _musicPlayer.enabled = false;
     }
 
     public void EnterUpgradeMode()
     {
+        _musicPlayer.enabled = true;
         _upgradeCamera.enabled = true;
         _sail.DOColor(Color.clear, 1f);
-        _upgradeMenu.SetActive(true);
+        gameObject.SetActive(true);
         _buttonImages.ForEach(i => i.image.DOColor(i.color, 1f));
         _buttonTexts.ForEach(t => t.DOColor(Color.black, 1f));
         StartCoroutine(CooldownUpgradeMode());
@@ -56,10 +58,13 @@ public class UpgradeMode : MonoBehaviour
     public void ExitUpgradeMode()
     {
         StopAllCoroutines();
+        _musicPlayer.enabled = false;
         _upgradeCamera.enabled = false;
         _buttonImages.ForEach(i => i.image.DOColor(Color.clear, 1f));
         _buttonTexts.ForEach(t => t.DOColor(Color.clear, 1f));
-        _sail.DOColor(Color.white, 1f).OnComplete(() => _upgradeMenu.SetActive(false));
+        _sail.DOColor(Color.white, 1f).OnComplete(() => {
+            gameObject.SetActive(false);
+        });
         OnEndUpgradeTime?.Invoke();
     }
 }

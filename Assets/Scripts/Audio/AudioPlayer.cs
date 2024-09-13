@@ -14,10 +14,9 @@ public class AudioPlayer : MonoBehaviour, IPoolItem
         }
     }
 
-    public void PlayClip(AudioClip clip, float pitch)
+    public void PlayClip(AudioClip clip)
     {
         _audioSource.clip = clip;
-        _audioSource.pitch = pitch;
         _audioSource.Play();
     }
 

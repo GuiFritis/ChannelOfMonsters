@@ -49,3 +49,7 @@ MonoBehaviour:
   _cannonsDistance: 0.08
   _maxCannons: 3
   _reloadSpeed: 3
+  _shootSFX:
+  - {fileID: 8300000, guid: 5ff823f546b52574a931e1d9b44290a6, type: 3}
+  - {fileID: 8300000, guid: a764377339b869e459f5e53fb9258f73, type: 3}
+  - {fileID: 8300000, guid: 6dd7024f00606b44eb5884197a66a893, type: 3}

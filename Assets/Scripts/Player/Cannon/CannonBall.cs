@@ -80,7 +80,7 @@ public class CannonBall : MonoBehaviour, IPoolItem
         _vfx.transform.position = transform.position;
         _vfx.gameObject.SetActive(true);
         _vfx.SetTrigger("WaterSplash");
-        SFX_Pool.Instance.Play(_sfxWaterSplash.GetRandom(), .5f);
+        SFX_Pool.Instance.Play(_sfxWaterSplash.GetRandom());
     }
 
     private void PlayExplosion()

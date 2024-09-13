@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     public HealthBase Health{get{return _health;}}
     [SerializeField] private float _resistenceUpgrade;
     [SerializeField] private float _maxResistence;
+    [SerializeField] private AudioClip _sfxSinking;
     [Header("Cannons")]
     [SerializeField] private CannonGroup _frontCannons;
     [SerializeField] private CannonGroup _leftCannons;
@@ -73,6 +74,7 @@ public class Player : MonoBehaviour
     {
         SetInputs();
         SetupCannons();
+        _health.OnDeath += OnDeath;
     }
 
     private void SetupCannons()
@@ -128,6 +130,11 @@ public class Player : MonoBehaviour
             _rigdbody.AddForce(_moveSpeed * Time.fixedDeltaTime * transform.up, ForceMode2D.Force);
         }
         
+    }
+
+    private void OnDeath(HealthBase hp)
+    {
+        SFX_Pool.Instance.Play(_sfxSinking);
     }
 
     #region HIT

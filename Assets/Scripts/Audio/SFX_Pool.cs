@@ -3,13 +3,13 @@ using Utils;
 
 public class SFX_Pool : PoolBase<AudioPlayer, SFX_Pool>
 {
-    public void Play(AudioClip clip, float pitch = 1)
+    public void Play(AudioClip clip)
     {
         if(clip != null)
         {
             var item = GetPoolItem();
             item.pool = this;
-            item.PlayClip(clip, pitch);
+            item.PlayClip(clip);
         }
     }
 }

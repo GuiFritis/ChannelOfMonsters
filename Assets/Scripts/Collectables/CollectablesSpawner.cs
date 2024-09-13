@@ -12,7 +12,6 @@ public class CollectablesSpawner : MonoBehaviour
 
     private void Start()
     {
-        SpawnCollectable();
         StartCoroutine(SpawnsCollectableCoroutine());
     }
 
