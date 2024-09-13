@@ -106,7 +106,7 @@ namespace Enemies{
         {
             _trail.enabled = false;
             _trail.Clear();
-            _stm.SwitchState(EnemyStates.STUNNED, .1f);
+            _stm.SwitchState(EnemyStates.STUNNED, 1f);
             yield return new WaitForEndOfFrame();
             transform.position = position;
             _trail.enabled = true;

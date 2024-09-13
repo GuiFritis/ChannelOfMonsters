@@ -16,4 +16,9 @@ public class Money_HUD : MonoBehaviour
     {
         _textMesh.text = coins.ToString();
     }
+
+    private void OnDestroy()
+    {
+        soCoins.OnValueChanged -= UpdateJoyHUD;
+    }
 }

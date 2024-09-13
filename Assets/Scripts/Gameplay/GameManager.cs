@@ -20,18 +20,25 @@ public class GameManager : Singleton<GameManager>
 
     private void OnValidate()
     {
-        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        if(_player == null)
+        {
+            var obj = GameObject.FindGameObjectWithTag("Player");
+            if(obj != null)
+            {
+                _player = obj.GetComponent<Player>();
+            }
+        }
     }
 
     protected override void Awake()
     {
         base.Awake();
-        currentWave.Value = -1;
         _player.transform.position = _spawnPoints.GetRandom().position;
     }
 
     private void Start()
     {
+        currentWave.Value = -1;
         coinsSO.Value = _startCoins;
         _waveSpawner.OnWaveEnded += WaveEnded;
         _upgradeMode.OnEndUpgradeTime += ExitUpgradeMode;
@@ -43,8 +50,9 @@ public class GameManager : Singleton<GameManager>
     {
         if(currentWave.Value > _wavesCount)
         {
+            PauseGame();
             ScreenManager.Instance.HideAllScreens();
-            //WIN
+            ScreenManager.Instance.ShowScreen(GameplayScreenType.WIN);
         }
         else
         {
@@ -76,5 +84,12 @@ public class GameManager : Singleton<GameManager>
     public void ResumeGame()
     {
         Time.timeScale = 1;
+    }
+
+    private void OnDestroy()
+    {
+        _waveSpawner.OnWaveEnded -= WaveEnded;
+        _upgradeMode.OnEndUpgradeTime -= ExitUpgradeMode;
+        _player.Health.OnDeath -= hp => GameOver();
     }
 }

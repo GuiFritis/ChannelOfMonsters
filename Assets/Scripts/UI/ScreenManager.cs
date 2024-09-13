@@ -6,7 +6,8 @@ public enum GameplayScreenType
 {
     PLAYER_HUD,
     MENU,
-    GAME_OVER
+    GAME_OVER,
+    WIN
 }
 
 public class ScreenManager : Singleton<ScreenManager>

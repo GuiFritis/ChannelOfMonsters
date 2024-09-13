@@ -114,7 +114,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 3225640545118420339, guid: f1bb34dc3b4c9b240baafb7b9c714308, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.732
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -428,6 +428,16 @@ MonoBehaviour:
   _upgradeModeDuration: 10
   _sail: {fileID: 0}
   _musicPlayer: {fileID: 4187665209913036443}
+  _upgradeBtns:
+  - {fileID: 2478671938004229930}
+  - {fileID: 534452381538731541}
+  - {fileID: 5361646341513572436}
+  - {fileID: 5401687626660370671}
+  - {fileID: 4684253905971571123}
+  - {fileID: 3378011640353950767}
+  - {fileID: 1680322905851421411}
+  - {fileID: 3986509312711283492}
+  - {fileID: 715387239665567439}
 --- !u!1 &6338988576458417934
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,7 +597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f9ffd427395cf84e8ca32ff1fb7d216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _upgradeMode: {fileID: 0}
+  _upgradeMode: {fileID: 6940643663174895711}
 --- !u!114 &1140294327264712379
 MonoBehaviour:
   m_ObjectHideFlags: 0

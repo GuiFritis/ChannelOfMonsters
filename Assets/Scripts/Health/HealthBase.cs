@@ -53,4 +53,10 @@ public class HealthBase : MonoBehaviour
         baseHealth += increaseAmount;
         TakeDamage(-increaseAmount);
     }
+
+    private void OnDestroy()
+    {
+        OnDamage = null;
+        OnDeath = null;
+    }
 }

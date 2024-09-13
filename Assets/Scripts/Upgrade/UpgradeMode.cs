@@ -13,23 +13,15 @@ public class UpgradeMode : MonoBehaviour
     [SerializeField] private float _upgradeModeDuration;
     [SerializeField] private SpriteRenderer _sail;
     [SerializeField] private MusicPlayer _musicPlayer;
-    private List<ImageColor> _buttonImages = new();
-    private List<TextMeshProUGUI> _buttonTexts = new();
+    [SerializeField] private List<UpgradeButton> _upgradeBtns = new();
     public System.Action OnEndUpgradeTime;
 
     private void Awake()
     {
-        _buttonImages = new();
-        foreach(Image img in GetComponentsInChildren<Image>())
+        if(_upgradeBtns == null || _upgradeBtns.Count == 0)
         {
-            _buttonImages.Add(new ImageColor{
-                image = img,
-                color = img.color
-            });
-            img.color = Color.clear;
+            _upgradeBtns = GetComponentsInChildren<UpgradeButton>().ToList();
         }
-        _buttonTexts = GetComponentsInChildren<TextMeshProUGUI>().ToList();
-        _buttonTexts.ForEach(t => t.color = Color.clear);
         _musicPlayer.enabled = false;
     }
 
@@ -39,8 +31,7 @@ public class UpgradeMode : MonoBehaviour
         _upgradeCamera.enabled = true;
         _sail.DOColor(Color.clear, 1f);
         gameObject.SetActive(true);
-        _buttonImages.ForEach(i => i.image.DOColor(i.color, 1f));
-        _buttonTexts.ForEach(t => t.DOColor(Color.black, 1f));
+        _upgradeBtns.ForEach(i => i.ShowButton());
         StartCoroutine(CooldownUpgradeMode());
     }
 
@@ -60,8 +51,7 @@ public class UpgradeMode : MonoBehaviour
         StopAllCoroutines();
         _musicPlayer.enabled = false;
         _upgradeCamera.enabled = false;
-        _buttonImages.ForEach(i => i.image.DOColor(Color.clear, 1f));
-        _buttonTexts.ForEach(t => t.DOColor(Color.clear, 1f));
+        _upgradeBtns.ForEach(i => i.HideButton());
         _sail.DOColor(Color.white, 1f).OnComplete(() => {
             gameObject.SetActive(false);
         });

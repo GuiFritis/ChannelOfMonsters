@@ -8,10 +8,12 @@ public class MusicPlayer : MonoBehaviour
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private List<AudioClip> _songs;
     [SerializeField] private bool _playOnAwake = true;
+    private float _volume;
 
     private void Awake()
     {
         _audioSource.clip = _songs.GetRandom();
+        _volume = _audioSource.volume;
         if(_playOnAwake)
         {
             StartMusic();
@@ -42,6 +44,6 @@ public class MusicPlayer : MonoBehaviour
     {
         _audioSource.UnPause();
         _audioSource.DOKill();
-        _audioSource.DOFade(1, 1f);
+        _audioSource.DOFade(_volume, 1f);
     }
 }

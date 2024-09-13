@@ -1,3 +1,5 @@
+using DG.Tweening;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,8 +12,10 @@ public class UpgradeButton : MonoBehaviour
 
     private void Start()
     {
-        soCoins.OnValueChanged += CheckUpgradeValue;
-        CheckUpgradeValue(soCoins.Value);
+        if(gameObject != null)
+        {
+            soCoins.OnValueChanged += CheckUpgradeValue;
+        }
     }
 
     public void MaxLevel()
@@ -48,5 +52,36 @@ public class UpgradeButton : MonoBehaviour
     {
         _button.interactable = true;
         _priceTag.color = Color.white;
+    }
+
+    public void ShowButton()
+    {
+        CheckUpgradeValue(soCoins.Value);
+        _button.DOKill();
+        _priceTag.DOKill();
+        gameObject.SetActive(true);
+        _button.image.DOFade(0, .3f).From(true);
+        _priceTag.DOFade(0, .3f).From(true);
+    }
+
+    public void HideButton()
+    {
+        _button.DOKill();
+        _priceTag.DOKill();
+        Color btnColor = _button.image.color;
+        Color priceTagColor = _priceTag.color;
+        _button.image.DOFade(0, .3f).OnComplete(
+            () => {
+                gameObject.SetActive(false);
+                _button.image.color = btnColor;
+                _priceTag.color = priceTagColor;
+            }
+        );
+        _priceTag.DOFade(0, .3f);
+    }
+
+    private void OnDestroy()
+    {
+        soCoins.OnValueChanged -= CheckUpgradeValue;
     }
 }
