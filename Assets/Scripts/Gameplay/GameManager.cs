@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Tutorial;
 using UnityEngine;
 using Utils;
 using Utils.Singleton;
@@ -9,6 +10,7 @@ public class GameManager : Singleton<GameManager>
     public SOInt currentWave;
     [SerializeField] private int _startCoins = 100;
     [SerializeField] private int _wavesCount = 10;
+    [SerializeField] private TutorialManager _tutorial;
     [SerializeField] private WaveSpawner _waveSpawner;
     public WaveSpawner WaveSpawner { get { return _waveSpawner;}}
     [SerializeField] private Storm _storm;
@@ -33,7 +35,9 @@ public class GameManager : Singleton<GameManager>
     protected override void Awake()
     {
         base.Awake();
+        _tutorial.OnEndTutorial += WaveEnded;
         _player.transform.position = _spawnPoints.GetRandom().position;
+        
     }
 
     private void Start()
@@ -43,7 +47,6 @@ public class GameManager : Singleton<GameManager>
         _waveSpawner.OnWaveEnded += WaveEnded;
         _upgradeMode.OnEndUpgradeTime += ExitUpgradeMode;
         _player.Health.OnDeath += hp => GameOver();
-        WaveEnded();
     }
 
     private void WaveEnded()

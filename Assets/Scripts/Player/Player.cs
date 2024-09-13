@@ -47,6 +47,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _minReloadSpeed;
 
     private Gameplay _inputs;
+    public Gameplay Inputs {get {return _inputs;}}
     private bool _isMoving = false;
     private float _turnDirection = 0f;
 
