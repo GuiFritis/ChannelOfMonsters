@@ -65,19 +65,19 @@ public class WaveSpawner : Singleton<WaveSpawner>
     public Vector2 GetRandomPointInPerimeter()
     {
         Vector2 point = (Vector2)player.transform.position;
-        while(Physics2D.OverlapPoint(point) != null)
+        do
         {
             if(Random.Range(0, 2) == 0)
             {
                 point.x += _spawnArea.x/2 * (Random.Range(0, 2)==0?1:-1);
-                point.y += Random.Range(0, _spawnArea.y/2) * (Random.Range(0, 2)==0?1:-1);
+                point.y += Random.Range(0f, _spawnArea.y/2) * (Random.Range(0, 2)==0?1:-1);
             }
             else
             {
-                point.x += Random.Range(0, _spawnArea.x/2) * (Random.Range(0, 2)==0?1:-1);
+                point.x += Random.Range(0f, _spawnArea.x/2) * (Random.Range(0, 2)==0?1:-1);
                 point.y += _spawnArea.y/2 * (Random.Range(0, 2)==0?1:-1);
             }
-        }
+        } while(Physics2D.OverlapPoint(point) != null);
         return point;
     }
 
