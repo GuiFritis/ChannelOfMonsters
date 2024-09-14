@@ -164,7 +164,7 @@ MonoBehaviour:
   _coins: {fileID: 11400000, guid: c9a473213be40444fb35b4cec3010d6e, type: 2}
   _currentWave: {fileID: 11400000, guid: ff3694fdbe8dece4bbb030592764b012, type: 2}
   _minValue: 10
-  _maxValue: 50
+  _maxValue: 35
   _minSpeed: 0.1
   _maxSpeed: 0.6
   _collectVFX: {fileID: 5931587834968864943, guid: 388625e946165b5449963a256bb263b8, type: 3}

@@ -4876,7 +4876,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -9210337274905092637, guid: f1bb34dc3b4c9b240baafb7b9c714308, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.583
+  m_Volume: 0.174
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -5021,7 +5021,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 3225640545118420339, guid: f1bb34dc3b4c9b240baafb7b9c714308, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.785
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -10170,7 +10170,7 @@ MonoBehaviour:
   - {fileID: -2345737146547630643, guid: fba2d0eb78e9b7648b0dcf98def97f54, type: 3}
   - {fileID: 5329558109835318149, guid: 11963d419a3689747a5bb1f4621ae14d, type: 3}
   - {fileID: -926373735710267837, guid: 97215213b0ed2ca4089ea3b47229e75a, type: 3}
-  _timeBetweenEnemies: 0.8
+  _timeBetweenEnemies: 1
   _enemyPools: {fileID: 0}
   player: {fileID: 0}
   _spawnArea: {x: 19, y: 11.2}

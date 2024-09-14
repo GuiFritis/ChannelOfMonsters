@@ -718,7 +718,7 @@ MonoBehaviour:
   _sfxAttack:
   - {fileID: 8300000, guid: ac6034ade498bb94b87620cdf6eac48b, type: 3}
   _speed: 0.8
-  _damage: 24
+  _damage: 15
   _coins: 15
   soCoins: {fileID: 11400000, guid: c9a473213be40444fb35b4cec3010d6e, type: 2}
   _maxDistanceToPlayer: 12.65

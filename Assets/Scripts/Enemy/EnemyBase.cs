@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,7 @@ namespace Enemies{
         private float _baseHealth;
         private float _baseDamage;
         private float _baseSpeed;
+        private int _baseCoins;
         private int _level = 0;
 
         void OnValidate()
@@ -48,6 +50,7 @@ namespace Enemies{
             _baseDamage = _damage;
             _baseSpeed = _speed;
             _baseHealth = _health.baseHealth;
+            _baseCoins = _coins;
         }
 
         private void InitStateMachine()
@@ -71,6 +74,7 @@ namespace Enemies{
             _damage = _baseDamage + (_level * _baseDamage/10f);
             _speed = _baseSpeed + (_level * _baseSpeed/8f);
             _health.baseHealth = _baseHealth + (_level * _baseHealth/8f);
+            _coins = _baseCoins + Mathf.FloorToInt(level * 1.5f);
             _health.ResetLife();
             _stm.SwitchState(EnemyStates.MOVING);
         }

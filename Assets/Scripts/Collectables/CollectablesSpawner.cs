@@ -9,10 +9,19 @@ public class CollectablesSpawner : MonoBehaviour
     [SerializeField] private float _timeBetweenSpawns;
     private Collectable _collectable;
     private int _collectablesCount;
+    private Coroutine _spawningCoroutine;
 
-    private void Start()
+    public void StartSpawning()
     {
-        StartCoroutine(SpawnsCollectableCoroutine());
+        _spawningCoroutine = StartCoroutine(SpawnsCollectableCoroutine());
+    }
+
+    public void StopSpawning()
+    {
+        if(_spawningCoroutine != null)
+        {
+            StopCoroutine(_spawningCoroutine);
+        }
     }
 
     private IEnumerator SpawnsCollectableCoroutine()

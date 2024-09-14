@@ -49,7 +49,10 @@ public class Storm : MonoBehaviour
 
     public void EndStorm()
     {
-        StopCoroutine(_lightningCoroutine);
+        if(_lightningCoroutine != null)
+        {
+            StopCoroutine(_lightningCoroutine);
+        }
         _musicPlayers.ForEach(i => i.enabled = false);
         _lightning.Stop();
         _rain.Stop();

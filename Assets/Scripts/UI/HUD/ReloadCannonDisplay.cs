@@ -26,7 +26,7 @@ public class ReloadCannonDisplay : MonoBehaviour
         if(percentage < .1f)
         {
             _icon.DOKill();
-            _icon.DOFade(.5f, .6f);
+            _icon.DOFade(.8f, .6f);
         }
     }
 }

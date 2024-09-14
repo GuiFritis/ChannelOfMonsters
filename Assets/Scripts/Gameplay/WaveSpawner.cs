@@ -14,6 +14,7 @@ public class WaveSpawner : Singleton<WaveSpawner>
     [SerializeField] private EnemyPools _enemyPools;
     [SerializeField] private Player player;
     [SerializeField] private Vector2 _spawnArea;
+    [SerializeField] private int _maxOnScreenEnemies = 9;
     private float _currentWaveEnemies;
     private float _currentWaveEnemiesKilled;
     private EnemyBase _currentEnemy;
@@ -28,13 +29,16 @@ public class WaveSpawner : Singleton<WaveSpawner>
 
     private IEnumerator WaveRunning()
     {
-        while(_currentWaveEnemies < _StartEnemiesCount + (_currentWave.Value * 4))
+        while(_currentWaveEnemies < _StartEnemiesCount + (_currentWave.Value * 3))
         {
-            _currentEnemy = _enemyPools.GetEnemy(_enemies.GetRandom());
-            _currentEnemy.Init(player, GetRandomPointInPerimeter(), _currentWave.Value);
-            _currentEnemy.Health.OnDeath += EnemyKilled;
-            yield return new WaitForSeconds(_timeBetweenEnemies - .02f * _currentWave.Value);
-            _currentWaveEnemies++;
+            if(_currentWaveEnemies - _currentWaveEnemiesKilled < _maxOnScreenEnemies)
+            {
+                _currentEnemy = _enemyPools.GetEnemy(_enemies.GetRandom());
+                _currentEnemy.Init(player, GetRandomPointInPerimeter(), _currentWave.Value);
+                _currentEnemy.Health.OnDeath += EnemyKilled;
+                yield return new WaitForSeconds(_timeBetweenEnemies - .02f * _currentWave.Value);
+                _currentWaveEnemies++;
+            }
         }
     }
 
