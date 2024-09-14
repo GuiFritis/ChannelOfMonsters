@@ -19,11 +19,7 @@ namespace Dialogues
         {
             if(dialogueSteps == null || dialogueSteps.Count == 0)
             {
-                try
-                {
-                    dialogueSteps = GetComponentsInChildren<DialogueStep>().ToList();
-                } 
-                catch(Exception ex){}
+                dialogueSteps = GetComponentsInChildren<DialogueStep>().ToList();
             }
         }
 
@@ -35,6 +31,7 @@ namespace Dialogues
             }
             dialogueSteps[0].StartStep(this);
             _nextStepButton.Enable(this);
+            _nextStepButton.SetStep(dialogueSteps[0]);
         }
 
         public void NextStep()

@@ -125,5 +125,6 @@ public class GameManager : Singleton<GameManager>
         _waveSpawner.OnWaveEnded -= WaveEnded;
         _upgradeMode.OnEndUpgradeTime -= ExitUpgradeMode;
         _player.Health.OnDeath -= hp => GameOver();
+        Time.timeScale = 1;
     }
 }

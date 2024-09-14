@@ -36,9 +36,9 @@ public class WaveSpawner : Singleton<WaveSpawner>
                 _currentEnemy = _enemyPools.GetEnemy(_enemies.GetRandom());
                 _currentEnemy.Init(player, GetRandomPointInPerimeter(), _currentWave.Value);
                 _currentEnemy.Health.OnDeath += EnemyKilled;
-                yield return new WaitForSeconds(_timeBetweenEnemies - .02f * _currentWave.Value);
                 _currentWaveEnemies++;
             }
+            yield return new WaitForSeconds(_timeBetweenEnemies - (.02f * _currentWave.Value));
         }
     }
 

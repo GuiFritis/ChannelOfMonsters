@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using Utils;
 
 public class CollectablesSpawner : MonoBehaviour
 {
@@ -28,8 +27,8 @@ public class CollectablesSpawner : MonoBehaviour
     {
         while(true)
         {
-            yield return new WaitForSeconds(_timeBetweenSpawns);
             SpawnCollectable();
+            yield return new WaitForSeconds(_timeBetweenSpawns);
         }
     }
 

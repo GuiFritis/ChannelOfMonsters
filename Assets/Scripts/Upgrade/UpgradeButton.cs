@@ -56,19 +56,19 @@ public class UpgradeButton : MonoBehaviour
     public void ShowButton()
     {
         CheckUpgradeValue(soCoins.Value);
+        gameObject.SetActive(true);
         _button.DOKill();
         _priceTag.DOKill();
-        gameObject.SetActive(true);
         _button.image.DOFade(0, .3f).From(true);
         _priceTag.DOFade(0, .3f).From(true);
     }
 
     public void HideButton()
     {
+        Color btnColor = _button.image.color;
+        Color priceTagColor = _priceTag.color;        
         _button.DOKill();
         _priceTag.DOKill();
-        Color btnColor = _button.image.color;
-        Color priceTagColor = _priceTag.color;
         _button.image.DOFade(0, .3f).OnComplete(
             () => {
                 gameObject.SetActive(false);

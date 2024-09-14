@@ -6,9 +6,9 @@ public class NextStepButton : MonoBehaviour
 {
     [SerializeField] private Button _button;
     private DialogueStep _tutorialStep;
-    private Dialogues.Dialogue _manager;
+    private Dialogue _manager;
 
-    public void Enable(Dialogues.Dialogue manager)
+    public void Enable(Dialogue manager)
     {
         _manager = manager;
         gameObject.SetActive(true);
@@ -29,6 +29,7 @@ public class NextStepButton : MonoBehaviour
 
     public void NextStep()
     {
+        _tutorialStep = null;
         _manager.NextStep();
     }
 
