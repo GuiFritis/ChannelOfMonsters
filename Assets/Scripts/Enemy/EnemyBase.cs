@@ -135,6 +135,7 @@ namespace Enemies{
         #region DEATH
         private void OnDeath(HealthBase hp)
         {
+            _trail.Clear();
             soCoins.Value += _coins;
             _objectPool.Release(this);
             StopAllCoroutines();

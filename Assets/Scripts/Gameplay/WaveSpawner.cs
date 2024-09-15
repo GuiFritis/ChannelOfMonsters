@@ -11,6 +11,7 @@ public class WaveSpawner : Singleton<WaveSpawner>
     [SerializeField] private float _StartEnemiesCount;
     [SerializeField] List<EnemyBase> _enemies;
     [SerializeField] float _timeBetweenEnemies;
+    [SerializeField] private LayerMask _spawnAvoidLayers;
     [SerializeField] private EnemyPools _enemyPools;
     [SerializeField] private Player player;
     [SerializeField] private Vector2 _spawnArea;
@@ -64,20 +65,21 @@ public class WaveSpawner : Singleton<WaveSpawner>
 
     public Vector2 GetRandomPointInPerimeter()
     {
-        Vector2 point = (Vector2)player.transform.position;
+        Vector2 point;
         do
         {
+            point = player.transform.position;
             if(Random.Range(0, 2) == 0)
             {
                 point.x += _spawnArea.x/2 * (Random.Range(0, 2)==0?1:-1);
-                point.y += Random.Range(0f, _spawnArea.y/2) * (Random.Range(0, 2)==0?1:-1);
+                point.y += Random.Range(-_spawnArea.y/2, _spawnArea.y/2);
             }
             else
             {
-                point.x += Random.Range(0f, _spawnArea.x/2) * (Random.Range(0, 2)==0?1:-1);
+                point.x += Random.Range(-_spawnArea.x/2, _spawnArea.x/2);
                 point.y += _spawnArea.y/2 * (Random.Range(0, 2)==0?1:-1);
             }
-        } while(Physics2D.OverlapPoint(point) != null);
+        } while(Physics2D.OverlapPoint(point, _spawnAvoidLayers) != null);
         return point;
     }
 

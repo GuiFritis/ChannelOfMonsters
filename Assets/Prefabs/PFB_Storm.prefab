@@ -10171,7 +10171,10 @@ MonoBehaviour:
   - {fileID: 5329558109835318149, guid: 11963d419a3689747a5bb1f4621ae14d, type: 3}
   - {fileID: -926373735710267837, guid: 97215213b0ed2ca4089ea3b47229e75a, type: 3}
   _timeBetweenEnemies: 1
+  _spawnAvoidLayers:
+    serializedVersion: 2
+    m_Bits: 200
   _enemyPools: {fileID: 0}
   player: {fileID: 0}
-  _spawnArea: {x: 19, y: 11.2}
+  _spawnArea: {x: 19.4, y: 11.4}
   _maxOnScreenEnemies: 9
