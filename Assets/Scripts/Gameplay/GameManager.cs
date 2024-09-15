@@ -74,10 +74,7 @@ public class GameManager : Singleton<GameManager>
         if(currentWave.Value >= _wavesCount)
         {            
             _waveEndDialogues[currentWave.Value].StartFirstStep();
-            _waveEndDialogues[currentWave.Value].OnDialogueEnd += EnterUpgradeMode;
-            PauseGame();
-            ScreenManager.Instance.HideAllScreens();
-            ScreenManager.Instance.ShowScreen(GameplayScreenType.WIN);
+            _waveEndDialogues[currentWave.Value].OnDialogueEnd += WinGame;
         }
         else
         {
@@ -87,6 +84,13 @@ public class GameManager : Singleton<GameManager>
             _waveEndDialogues[currentWave.Value].StartFirstStep();
             _waveEndDialogues[currentWave.Value].OnDialogueEnd += EnterUpgradeMode;
         }
+    }
+
+    private void WinGame()
+    {
+        _player.DisableControls();
+        ScreenManager.Instance.HideAllScreens();
+        ScreenManager.Instance.ShowScreen(GameplayScreenType.WIN);
     }
 
     private void EnterUpgradeMode()

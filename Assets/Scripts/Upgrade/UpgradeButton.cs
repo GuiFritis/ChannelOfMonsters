@@ -49,8 +49,11 @@ public class UpgradeButton : MonoBehaviour
 
     private void EnableButton()
     {
-        _button.interactable = true;
-        _priceTag.color = Color.white;
+        if(_upgradeValue <= soCoins.Value)
+        {
+            _button.interactable = true;
+            _priceTag.color = Color.white;
+        }
     }
 
     public void ShowButton()
