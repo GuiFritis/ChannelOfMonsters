@@ -8,6 +8,7 @@ public class UpgradeButton : MonoBehaviour
     [SerializeField] private int _upgradeValue;
     [SerializeField] private Button _button;
     [SerializeField] private Image _priceTag;
+    private bool _isMaxLevel = false;
 
     private void Start()
     {
@@ -20,6 +21,7 @@ public class UpgradeButton : MonoBehaviour
     public void MaxLevel()
     {
         soCoins.OnValueChanged -= CheckUpgradeValue;
+        _isMaxLevel = true;
         DisabledButton();
     }
 
@@ -58,7 +60,14 @@ public class UpgradeButton : MonoBehaviour
 
     public void ShowButton()
     {
-        CheckUpgradeValue(soCoins.Value);
+        if(_isMaxLevel)
+        {
+            DisabledButton();
+        }
+        else
+        {
+            CheckUpgradeValue(soCoins.Value);
+        }
         gameObject.SetActive(true);
         _button.DOKill();
         _priceTag.DOKill();
