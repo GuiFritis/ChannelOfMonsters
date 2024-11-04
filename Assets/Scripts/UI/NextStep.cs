@@ -16,6 +16,7 @@ public class NextStep : MonoBehaviour
     {
         _inputs = new Gameplay();
         _inputs.Ship.ShootForward.performed += ctx => EndStep();
+        _inputs.Ship.NextStep.performed += ctx => EndStep();
     }
 
     public void Enable(Dialogue manager)

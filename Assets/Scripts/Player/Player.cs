@@ -108,6 +108,7 @@ public class Player : MonoBehaviour
 
     public void DisableControls()
     {
+        MoveForward(false);
         _inputs.Disable();
     }
 
@@ -157,30 +158,40 @@ public class Player : MonoBehaviour
     }
     #endregion
 
-    #region MOVE
+    #region MOVE    
     private void MoveForward(bool isMoving)
     {
         _isMoving = isMoving;
     }
 
-    private void TurnShip(float turnDirection)
+    public bool IsMoving()
+    {
+        return _isMoving;
+    }
+
+    public void ToggleMoveForward()
+    {
+        MoveForward(!_isMoving);
+    }
+
+    public void TurnShip(float turnDirection)
     {
         _turnDirection = turnDirection;
     }
     #endregion
 
     #region CANNONS
-    private void ShootForward()
+    public void ShootForward()
     {
         _frontCannons.Shoot();
     }
 
-    private void ShootLeft()
+    public void ShootLeft()
     {
         _leftCannons.Shoot();
     }
 
-    private void ShootRight()
+    public void ShootRight()
     {
         _rightCannons.Shoot();
     }

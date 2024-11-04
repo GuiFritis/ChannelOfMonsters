@@ -80,6 +80,15 @@ public partial class @Gameplay: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NextStep"",
+                    ""type"": ""Button"",
+                    ""id"": ""7fe8fe26-a805-4cfe-b0b8-b5b7fe001bfa"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -170,6 +179,28 @@ public partial class @Gameplay: IInputActionCollection2, IDisposable
                     ""action"": ""ShootLeft"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e39db653-3b96-430b-95d6-29ce520f0569"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextStep"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""11f64c1e-f183-40bb-a6c9-ef1b9a8846e1"",
+                    ""path"": ""<Touchscreen>/primaryTouch/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextStep"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -184,6 +215,7 @@ public partial class @Gameplay: IInputActionCollection2, IDisposable
         m_Ship_ShootForward = m_Ship.FindAction("ShootForward", throwIfNotFound: true);
         m_Ship_ShootRight = m_Ship.FindAction("ShootRight", throwIfNotFound: true);
         m_Ship_ShootLeft = m_Ship.FindAction("ShootLeft", throwIfNotFound: true);
+        m_Ship_NextStep = m_Ship.FindAction("NextStep", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -251,6 +283,7 @@ public partial class @Gameplay: IInputActionCollection2, IDisposable
     private readonly InputAction m_Ship_ShootForward;
     private readonly InputAction m_Ship_ShootRight;
     private readonly InputAction m_Ship_ShootLeft;
+    private readonly InputAction m_Ship_NextStep;
     public struct ShipActions
     {
         private @Gameplay m_Wrapper;
@@ -261,6 +294,7 @@ public partial class @Gameplay: IInputActionCollection2, IDisposable
         public InputAction @ShootForward => m_Wrapper.m_Ship_ShootForward;
         public InputAction @ShootRight => m_Wrapper.m_Ship_ShootRight;
         public InputAction @ShootLeft => m_Wrapper.m_Ship_ShootLeft;
+        public InputAction @NextStep => m_Wrapper.m_Ship_NextStep;
         public InputActionMap Get() { return m_Wrapper.m_Ship; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -288,6 +322,9 @@ public partial class @Gameplay: IInputActionCollection2, IDisposable
             @ShootLeft.started += instance.OnShootLeft;
             @ShootLeft.performed += instance.OnShootLeft;
             @ShootLeft.canceled += instance.OnShootLeft;
+            @NextStep.started += instance.OnNextStep;
+            @NextStep.performed += instance.OnNextStep;
+            @NextStep.canceled += instance.OnNextStep;
         }
 
         private void UnregisterCallbacks(IShipActions instance)
@@ -310,6 +347,9 @@ public partial class @Gameplay: IInputActionCollection2, IDisposable
             @ShootLeft.started -= instance.OnShootLeft;
             @ShootLeft.performed -= instance.OnShootLeft;
             @ShootLeft.canceled -= instance.OnShootLeft;
+            @NextStep.started -= instance.OnNextStep;
+            @NextStep.performed -= instance.OnNextStep;
+            @NextStep.canceled -= instance.OnNextStep;
         }
 
         public void RemoveCallbacks(IShipActions instance)
@@ -335,5 +375,6 @@ public partial class @Gameplay: IInputActionCollection2, IDisposable
         void OnShootForward(InputAction.CallbackContext context);
         void OnShootRight(InputAction.CallbackContext context);
         void OnShootLeft(InputAction.CallbackContext context);
+        void OnNextStep(InputAction.CallbackContext context);
     }
 }

@@ -58,6 +58,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "NextStep",
+                    "type": "Button",
+                    "id": "7fe8fe26-a805-4cfe-b0b8-b5b7fe001bfa",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -146,6 +155,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "ShootLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e39db653-3b96-430b-95d6-29ce520f0569",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextStep",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "11f64c1e-f183-40bb-a6c9-ef1b9a8846e1",
+                    "path": "<Touchscreen>/primaryTouch/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextStep",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
