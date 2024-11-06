@@ -96,12 +96,14 @@ public class GameManager : Singleton<GameManager>
     private void EnterUpgradeMode()
     {
         _player.DisableControls();
+        ScreenManager.Instance.HideTouchInputs();
         _upgradeMode.EnterUpgradeMode();
     }
 
     private void ExitUpgradeMode()
     {
         _player.EnableControls();
+        ScreenManager.Instance.ShowTouchInputs();
         _collectablesSpawner.StartSpawning();
         _storm.StartStorm();
         _hideWhileUpgrade.SetActive(true);

@@ -24,8 +24,7 @@ public class InputTouchTurnShip : MonoBehaviour, IPointerDownHandler, IPointerUp
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        _player.TurnShip(0);
-        RecolorSprites(_inactiveColor);
+        StopTurning();
     }
 
     private void RecolorSprites(Color color)
@@ -34,5 +33,16 @@ public class InputTouchTurnShip : MonoBehaviour, IPointerDownHandler, IPointerUp
         {
             item.color = color;
         }
+    }
+
+    private void StopTurning()
+    {
+        _player.TurnShip(0);
+        RecolorSprites(_inactiveColor);
+    }
+
+    private void OnDisable()
+    {
+        StopTurning();
     }
 }
