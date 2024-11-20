@@ -13,7 +13,7 @@ public enum GameplayScreenType
 public class ScreenManager : Singleton<ScreenManager>
 {    
     public List<ScreenType> screens = new();
-    [SerializeField] private GameObject _touchInputs;
+    [SerializeField] private HideTouchInputs _touchInputs;
 
     public void ShowScreen(GameplayScreenType screenType, bool active = true)
     {
@@ -32,12 +32,12 @@ public class ScreenManager : Singleton<ScreenManager>
 
     public void ShowTouchInputs()
     {
-        _touchInputs.SetActive(true);
+        _touchInputs.ShowInputs();
     }
 
     public void HideTouchInputs()
     {
-        _touchInputs.SetActive(false);
+        _touchInputs.HideInputs();
     }
 }
 

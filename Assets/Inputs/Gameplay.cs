@@ -190,17 +190,6 @@ public partial class @Gameplay: IInputActionCollection2, IDisposable
                     ""action"": ""NextStep"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""11f64c1e-f183-40bb-a6c9-ef1b9a8846e1"",
-                    ""path"": ""<Touchscreen>/primaryTouch/press"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""NextStep"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }

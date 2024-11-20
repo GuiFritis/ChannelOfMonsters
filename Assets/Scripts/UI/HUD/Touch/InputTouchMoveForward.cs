@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -5,6 +6,8 @@ using UnityEngine.UI;
 
 public class InputTouchMoveForward : MonoBehaviour, IPointerClickHandler
 {
+    public static Action OnTouch;
+
     [SerializeField] private Player _player;
     [SerializeField] private Color _activeColor;
     [SerializeField] private List<Image> _sprites;
@@ -18,6 +21,7 @@ public class InputTouchMoveForward : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        OnTouch?.Invoke();
         _player.ToggleMoveForward();
         RecolorSprites(_player.IsMoving() ? _activeColor : _inactiveColor);
     }

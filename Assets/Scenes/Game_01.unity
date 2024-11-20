@@ -949,7 +949,7 @@ MonoBehaviour:
   _balloon: {fileID: 763443929}
   _text: 'Don''t shout at me.
 
-    I still want to shoot you though one of the cannons.'
+    I still want to shoot you through one of the cannons.'
   _color: {r: 0, g: 0.08526182, b: 0.5622641, a: 1}
 --- !u!1 &155713390
 GameObject:
@@ -1997,7 +1997,6 @@ GameObject:
   - component: {fileID: 287492966}
   - component: {fileID: 287492969}
   - component: {fileID: 287492968}
-  - component: {fileID: 287492970}
   m_Layer: 5
   m_Name: TurnRight
   m_TagString: Untagged
@@ -2063,24 +2062,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 287492965}
   m_CullTransparentMesh: 1
---- !u!114 &287492970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 287492965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 903ddab5e5ae2e744992eaa112027728, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _turnDirection: -1
-  _player: {fileID: 1244526277}
-  _activeColor: {r: 0.54901963, g: 0.45882356, b: 0.34117648, a: 0.47843137}
-  _sprites:
-  - {fileID: 287492968}
-  - {fileID: 1140651189}
 --- !u!1 &299287814
 GameObject:
   m_ObjectHideFlags: 0
@@ -2723,6 +2704,167 @@ MonoBehaviour:
   _balloon: {fileID: 763443929}
   _text: ONCE WE GET TO THE GERBOS HOMELAND
   _color: {r: 0.8509804, g: 0, b: 0.29803923, a: 1}
+--- !u!1 &374195012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 374195013}
+  - component: {fileID: 374195017}
+  - component: {fileID: 374195016}
+  - component: {fileID: 374195015}
+  - component: {fileID: 374195014}
+  m_Layer: 5
+  m_Name: Touch here
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &374195013
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374195012}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 448376615}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.001796, y: -123.735535}
+  m_SizeDelta: {x: 465.9297, y: 214.269}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &374195014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374195012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7b282223acbc2541a4e3169a761663b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &374195015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374195012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a78a5ad586987d49979bbf2f32a1166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hideWhenTouch: 0
+--- !u!114 &374195016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374195012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Touch here to go to the next dialogue
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: ed2563fa2855f1a478ae0ca7f6dc7d60, type: 2}
+  m_sharedMaterial: {fileID: 6091748581611551683, guid: ed2563fa2855f1a478ae0ca7f6dc7d60, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4279308561
+  m_fontColor: {r: 0.10943389, g: 0.10943389, b: 0.10943389, a: 0}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 21.9
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 170.02333, z: 0, w: 12.39753}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &374195017
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374195012}
+  m_CullTransparentMesh: 1
 --- !u!1 &384124150
 GameObject:
   m_ObjectHideFlags: 0
@@ -2734,6 +2876,7 @@ GameObject:
   - component: {fileID: 384124151}
   - component: {fileID: 384124153}
   - component: {fileID: 384124152}
+  - component: {fileID: 384124154}
   m_Layer: 5
   m_Name: Press space
   m_TagString: Untagged
@@ -2748,7 +2891,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 384124150}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2757,8 +2900,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000038147, y: -203.6}
-  m_SizeDelta: {x: 329.5604, y: 28.3062}
+  m_AnchoredPosition: {x: 0, y: -203.6}
+  m_SizeDelta: {x: 449.9936, y: 28.306}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &384124152
 MonoBehaviour:
@@ -2780,7 +2923,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press "Space" to go to next dialogue
+  m_text: Press "Space" to go to the next dialogue
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ed2563fa2855f1a478ae0ca7f6dc7d60, type: 2}
   m_sharedMaterial: {fileID: 6091748581611551683, guid: ed2563fa2855f1a478ae0ca7f6dc7d60, type: 2}
@@ -2790,7 +2933,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 1118481
-  m_fontColor: {r: 0.06666667, g: 0.06666667, b: 0.06666667, a: 0}
+  m_fontColor: {r: 0.10943389, g: 0.10943389, b: 0.10943389, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2807,15 +2950,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18.45
+  m_fontSize: 19.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -2857,6 +3000,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 384124150}
   m_CullTransparentMesh: 1
+--- !u!114 &384124154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384124150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a78a5ad586987d49979bbf2f32a1166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hideWhenTouch: 1
 --- !u!1 &394443972
 GameObject:
   m_ObjectHideFlags: 0
@@ -2998,7 +3154,7 @@ MonoBehaviour:
     screen: {fileID: 1897182093}
   - type: 3
     screen: {fileID: 521109690}
-  _touchInputs: {fileID: 2076774400}
+  _touchInputs: {fileID: 2076774402}
 --- !u!114 &397814957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3033,7 +3189,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0.313
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -3705,6 +3861,7 @@ RectTransform:
   - {fileID: 1425520454}
   - {fileID: 252096576}
   - {fileID: 384124151}
+  - {fileID: 374195013}
   m_Father: {fileID: 397814960}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3725,9 +3882,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextStep: {fileID: 252096577}
+  _nextStepTouch: {fileID: 374195014}
   _skipDialogueButton: {fileID: 1425520458}
-  _textHelper: {fileID: 384124152}
-  _touchControls: {fileID: 2076774400}
+  _textHelpers:
+  - {fileID: 384124152}
+  - {fileID: 374195016}
 --- !u!1 &450619948
 GameObject:
   m_ObjectHideFlags: 0
@@ -4537,56 +4696,6 @@ MonoBehaviour:
   _balloon: {fileID: 763443929}
   _text: RAR!
   _color: {r: 0, g: 0, b: 0, a: 1}
---- !u!1 &597728764
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 597728765}
-  - component: {fileID: 597728766}
-  m_Layer: 0
-  m_Name: Step6
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &597728765
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 597728764}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 82.893234, y: 8.029956, z: -2.2742934}
-  m_LocalScale: {x: 1.1534475, y: 1.1534475, z: 1.1534475}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1353517978}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &597728766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 597728764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 942ab44f531863e4984e89d988e65c8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dismissTime: 0.5
-  _balloon: {fileID: 477462352}
-  _text: 'What?
-
-    <size=-10>You think it''s weird to drive a ship with a keyboard?!</size>'
-  _color: {r: 0.9019608, g: 0.3137255, b: 0, a: 1}
 --- !u!1 &602987309
 GameObject:
   m_ObjectHideFlags: 0
@@ -5324,6 +5433,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1613301130}
+        m_TargetAssemblyTypeName: InputTouchCannonFire, Assembly-CSharp
+        m_MethodName: OnCannonShot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &699993043
 GameObject:
   m_ObjectHideFlags: 0
@@ -5370,7 +5491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dismissTime: 2
   _balloon: {fileID: 763443929}
-  _text: That circle in front of the ship shows us that the cannon is <b>reloading</b>.
+  _text: That circles that appear around the ship shows us that the cannon is <b>reloading</b>.
   _color: {r: 0, g: 0.08627451, b: 0.56078434, a: 1}
 --- !u!1 &704820478
 GameObject:
@@ -5473,57 +5594,6 @@ MonoBehaviour:
   _balloon: {fileID: 477462352}
   _text: I was already going to sleep.
   _color: {r: 0, g: 0.7137255, b: 0.5686275, a: 1}
---- !u!1 &705944106
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 705944107}
-  - component: {fileID: 705944108}
-  m_Layer: 0
-  m_Name: Step17
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &705944107
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 705944106}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 82.893234, y: 8.029956, z: -2.2742934}
-  m_LocalScale: {x: 1.1534475, y: 1.1534475, z: 1.1534475}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1353517978}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &705944108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 705944106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1eebdb3bb53a2c34193c96f7bb301f4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dismissTime: 1
-  _balloon: {fileID: 763443929}
-  _text: 'Now press "<b>Q</b>" to shoot to the left,
-
-    or "<b>E</b>" to shoot
-    to the right.'
-  _color: {r: 0, g: 0.08627451, b: 0.56078434, a: 1}
 --- !u!1 &729692455
 GameObject:
   m_ObjectHideFlags: 0
@@ -6689,54 +6759,6 @@ MonoBehaviour:
 
     I better remind you how to drive this ship.'
   _color: {r: 0.90188676, g: 0.31562534, b: 0, a: 1}
---- !u!1 &847651666
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 847651667}
-  - component: {fileID: 847651668}
-  m_Layer: 0
-  m_Name: Step14
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &847651667
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 847651666}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 82.893234, y: 8.029956, z: -2.2742934}
-  m_LocalScale: {x: 1.1534475, y: 1.1534475, z: 1.1534475}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1353517978}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &847651668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 847651666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 942ab44f531863e4984e89d988e65c8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dismissTime: 0.5
-  _balloon: {fileID: 763443929}
-  _text: You may have remembered we use a keyboard to control this ship.
-  _color: {r: 0, g: 0.08627451, b: 0.56078434, a: 1}
 --- !u!1 &853058903
 GameObject:
   m_ObjectHideFlags: 0
@@ -210682,7 +210704,7 @@ MonoBehaviour:
   _balloon: {fileID: 763443929}
   _text: 'Don''t shout at me.
 
-    I still want to shoot you though one of the cannons.'
+    I still want to shoot you through one of the cannons.'
   _color: {r: 0, g: 0.08526182, b: 0.5622641, a: 1}
 --- !u!1 &960327689
 GameObject:
@@ -211235,6 +211257,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1613301130}
+        m_TargetAssemblyTypeName: InputTouchCannonFire, Assembly-CSharp
+        m_MethodName: OnCannonShot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1004294395
 GameObject:
   m_ObjectHideFlags: 0
@@ -211469,57 +211503,6 @@ MonoBehaviour:
   _balloon: {fileID: 477462352}
   _text: See? <b>2</b> days and no trouble.
   _color: {r: 0, g: 0.7137255, b: 0.5686275, a: 1}
---- !u!1 &1031191394
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1031191395}
-  - component: {fileID: 1031191396}
-  m_Layer: 0
-  m_Name: Step7
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1031191395
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1031191394}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 82.893234, y: 8.029956, z: -2.2742934}
-  m_LocalScale: {x: 1.1534475, y: 1.1534475, z: 1.1534475}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1353517978}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1031191396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1031191394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 942ab44f531863e4984e89d988e65c8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dismissTime: 0.5
-  _balloon: {fileID: 477462352}
-  _text: '<size=-10>The last guy that said it to HR it not with us anymore.
-
-    So
-    keep it down.</size>'
-  _color: {r: 0.9019608, g: 0.3137255, b: 0, a: 1}
 --- !u!1 &1037660935
 GameObject:
   m_ObjectHideFlags: 3
@@ -665139,7 +665122,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1123395136}
-  - component: {fileID: 1123395137}
+  - component: {fileID: 1123395138}
   m_Layer: 0
   m_Name: Step15
   m_TagString: Untagged
@@ -665162,7 +665145,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1353517978}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1123395137
+--- !u!114 &1123395138
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -665171,13 +665154,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1123395135}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f6accf45f366934f8a3e265f5f786cd, type: 3}
+  m_Script: {fileID: 11500000, guid: 12c05ae7108396d4d9c58825a8bfefa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _dismissTime: 1
   _balloon: {fileID: 763443929}
-  _text: So, to shoot with the front cannon press "<b>SPACE</b>".
+  _text: So, to shoot with the cannons press one of these button on the lower right
+    corner.
   _color: {r: 0, g: 0.08627451, b: 0.56078434, a: 1}
+  _inputs:
+  - {fileID: 697307121}
+  - {fileID: 1599476892}
+  - {fileID: 984505202}
 --- !u!1001 &1125457658
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -666135,6 +666123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1191814223}
+  - component: {fileID: 1191814224}
   m_Layer: 5
   m_Name: Right
   m_TagString: Untagged
@@ -666162,6 +666151,24 @@ RectTransform:
   m_AnchoredPosition: {x: 50.589, y: -43.342}
   m_SizeDelta: {x: 101.18, y: 86}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1191814224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191814222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 903ddab5e5ae2e744992eaa112027728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _turnDirection: -1
+  _player: {fileID: 1244526277}
+  _activeColor: {r: 0.54901963, g: 0.45882356, b: 0.34117648, a: 0.47843137}
+  _sprites:
+  - {fileID: 287492968}
+  - {fileID: 1140651189}
 --- !u!1 &1195794535
 GameObject:
   m_ObjectHideFlags: 0
@@ -667425,19 +667432,14 @@ RectTransform:
   - {fileID: 977335633}
   - {fileID: 845538774}
   - {fileID: 2066052295}
-  - {fileID: 597728765}
-  - {fileID: 1031191395}
   - {fileID: 1496455009}
   - {fileID: 249221359}
   - {fileID: 188916058}
   - {fileID: 148742052}
   - {fileID: 1735792941}
   - {fileID: 108031395}
-  - {fileID: 847651667}
   - {fileID: 1123395136}
   - {fileID: 699993044}
-  - {fileID: 705944107}
-  - {fileID: 1664251438}
   - {fileID: 651800533}
   - {fileID: 432233815}
   - {fileID: 32047146}
@@ -667475,19 +667477,14 @@ MonoBehaviour:
   - {fileID: 977335634}
   - {fileID: 845538775}
   - {fileID: 2066052296}
-  - {fileID: 597728766}
-  - {fileID: 1031191396}
   - {fileID: 1496455010}
   - {fileID: 249221360}
   - {fileID: 188916059}
   - {fileID: 148742053}
   - {fileID: 1735792942}
   - {fileID: 108031396}
-  - {fileID: 847651668}
-  - {fileID: 1123395137}
+  - {fileID: 1123395138}
   - {fileID: 699993045}
-  - {fileID: 705944108}
-  - {fileID: 1664251439}
   - {fileID: 651800534}
   - {fileID: 432233816}
   - {fileID: 32047147}
@@ -668962,13 +668959,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1496455008}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0919508ead93b84087b233c1dfd4278, type: 3}
+  m_Script: {fileID: 11500000, guid: d098b8a1d4188d44b90e2ff565fd77e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _dismissTime: 1
   _balloon: {fileID: 477462352}
-  _text: And hold "<b>A</b>" or "<b>D</b>" keys to turn the ship.
+  _text: "And hold pressed \"<b>\u2190</b>\" or \"<b>\u2192</b>\" to turn the ship."
   _color: {r: 0.9019608, g: 0.3137255, b: 0, a: 1}
+  _inputs:
+  - {fileID: 1191814224}
+  - {fileID: 1850721499}
 --- !u!1 &1496941434
 GameObject:
   m_ObjectHideFlags: 0
@@ -669752,6 +669752,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1613301130}
+        m_TargetAssemblyTypeName: InputTouchCannonFire, Assembly-CSharp
+        m_MethodName: OnCannonShot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1611367755
 GameObject:
   m_ObjectHideFlags: 0
@@ -669792,6 +669804,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1613301129}
+  - component: {fileID: 1613301130}
   m_Layer: 5
   m_Name: ShootInputs
   m_TagString: Untagged
@@ -669821,6 +669834,18 @@ RectTransform:
   m_AnchoredPosition: {x: -147.7009, y: 126.16}
   m_SizeDelta: {x: 210.14, y: 172.68}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1613301130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613301128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dd3ff90630b1b6468dea29020a7f933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1620205425
 GameObject:
   m_ObjectHideFlags: 0
@@ -670181,54 +670206,6 @@ MonoBehaviour:
   _dismissTime: 0.5
   _balloon: {fileID: 477462352}
   _text: Tonight I will see if what you read about the sky here is really true.
-  _color: {r: 0, g: 0.08627451, b: 0.56078434, a: 1}
---- !u!1 &1664251437
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1664251438}
-  - component: {fileID: 1664251439}
-  m_Layer: 0
-  m_Name: Step18
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1664251438
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1664251437}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 82.893234, y: 8.029956, z: -2.2742934}
-  m_LocalScale: {x: 1.1534475, y: 1.1534475, z: 1.1534475}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1353517978}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1664251439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1664251437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 942ab44f531863e4984e89d988e65c8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dismissTime: 0.8
-  _balloon: {fileID: 763443929}
-  _text: And again you can see it is <b>reloading</b>
   _color: {r: 0, g: 0.08627451, b: 0.56078434, a: 1}
 --- !u!1 &1666683995
 GameObject:
@@ -671546,8 +671523,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Game Paused
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ed2563fa2855f1a478ae0ca7f6dc7d60, type: 2}
+  m_sharedMaterial: {fileID: 6091748581611551683, guid: ed2563fa2855f1a478ae0ca7f6dc7d60, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -671571,7 +671548,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 51.15
+  m_fontSize: 42.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -672096,13 +672073,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2066052294}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b9ed1c45898af1478e90ab8141886bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 10ffc4823c2430c4bb9d8bbe49df4c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dismissTime: 1.5
+  _dismissTime: 1
   _balloon: {fileID: 477462352}
-  _text: "Click \"<b>\u2191</b>\" to start moving forward."
+  _text: "Touch  \"<b>\u2191</b>\" to start moving and .again to stop."
   _color: {r: 0.9019608, g: 0.3137255, b: 0, a: 1}
+  _input: {fileID: 680830774}
 --- !u!1 &2076774400
 GameObject:
   m_ObjectHideFlags: 0
@@ -672112,6 +672090,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2076774401}
+  - component: {fileID: 2076774402}
   m_Layer: 5
   m_Name: TouchInputs
   m_TagString: Untagged
@@ -672140,6 +672119,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2076774402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076774400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ab92971e0a78ca4984a08167d861f09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _touchInputs:
+  - {fileID: 1850721497}
+  - {fileID: 1191814222}
+  - {fileID: 680830772}
+  - {fileID: 697307121}
+  - {fileID: 1599476892}
+  - {fileID: 984505202}
 --- !u!1 &2079398295
 GameObject:
   m_ObjectHideFlags: 0
@@ -673006,6 +673004,10 @@ PrefabInstance:
       propertyPath: _initialSpeech
       value: 
       objectReference: {fileID: 796963292}
+    - target: {fileID: 7709995195358403363, guid: ef19024bcb1e70a478810a7118bbac02, type: 3}
+      propertyPath: _touchTutorial
+      value: 
+      objectReference: {fileID: 1353517979}
     - target: {fileID: 7709995195358403363, guid: ef19024bcb1e70a478810a7118bbac02, type: 3}
       propertyPath: _hideWhileUpgrade
       value: 

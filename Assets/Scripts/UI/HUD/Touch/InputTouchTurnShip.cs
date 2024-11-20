@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -5,19 +6,22 @@ using UnityEngine.UI;
 
 public class InputTouchTurnShip : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
+    public static Action OnTouch;
+
     [SerializeField] private float _turnDirection;
     [SerializeField] private Player _player;
     [SerializeField] private Color _activeColor;
     [SerializeField] private List<Image> _sprites;
     private Color _inactiveColor;
 
-    private void Start()
+    private void Awake()
     {
         _inactiveColor = _sprites[0].color;
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        OnTouch?.Invoke();
         _player.TurnShip(_turnDirection);
         RecolorSprites(_activeColor);
     }

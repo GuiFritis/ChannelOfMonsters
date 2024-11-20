@@ -11,6 +11,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private int _startCoins = 100;
     [SerializeField] private int _wavesCount = 10;
     [SerializeField] private Dialogue _tutorial;
+    [SerializeField] private Dialogue _touchTutorial;
     [SerializeField] private Dialogue _initialSpeech;
     [SerializeField] private List<Dialogue> _waveEndDialogues;
     [SerializeField] private WaveSpawner _waveSpawner;
@@ -50,10 +51,24 @@ public class GameManager : Singleton<GameManager>
         _waveSpawner.OnWaveEnded += WaveEnded;
         _upgradeMode.OnEndUpgradeTime += ExitUpgradeMode;
         _player.Health.OnDeath += hp => GameOver();
+        DisablePlayerControls();
         if(PlayerPrefs.GetInt(_tutorialStrPref, -1) <= 0)
         {
-            _tutorial.StartFirstStep();
-            _tutorial.OnDialogueEnd += EndTutorial;
+            #if UNITY_EDITOR
+                _touchTutorial.StartFirstStep();
+                _touchTutorial.OnDialogueEnd += EndTutorial;
+            #else
+                if(Input.touchSupported)
+                {
+                    _touchTutorial.StartFirstStep();
+                    _touchTutorial.OnDialogueEnd += EndTutorial;
+                }
+                else
+                {
+                    _tutorial.StartFirstStep();
+                    _tutorial.OnDialogueEnd += EndTutorial;
+                }
+            #endif
         }
         else
         {
@@ -71,6 +86,7 @@ public class GameManager : Singleton<GameManager>
 
     private void WaveEnded()
     {
+        DisablePlayerControls();
         if(currentWave.Value >= _wavesCount)
         {            
             _waveEndDialogues[currentWave.Value].StartFirstStep();
@@ -86,6 +102,12 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    private void DisablePlayerControls()
+    {        
+        ScreenManager.Instance.HideTouchInputs();
+        _player.DisableControls();
+    }
+
     private void WinGame()
     {
         _player.DisableControls();
@@ -95,8 +117,6 @@ public class GameManager : Singleton<GameManager>
 
     private void EnterUpgradeMode()
     {
-        _player.DisableControls();
-        ScreenManager.Instance.HideTouchInputs();
         _upgradeMode.EnterUpgradeMode();
     }
 

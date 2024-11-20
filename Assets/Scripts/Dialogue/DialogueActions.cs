@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -7,33 +8,39 @@ namespace Dialogues
     public class DialogueActions : MonoBehaviour
     {
         [SerializeField] private NextStep _nextStep;
+        [SerializeField] private NextStepTouch _nextStepTouch;
         [SerializeField] private SkipDialogueBTN _skipDialogueButton;
-        [SerializeField] private TextMeshProUGUI _textHelper;
-        [SerializeField] private GameObject _touchControls;
+        [SerializeField] private List<TextMeshProUGUI> _textHelpers;
 
         public void StartDialogue(Dialogue dialogue)
         {
             _nextStep.Enable(dialogue);
             _skipDialogueButton.Enable(dialogue);
-            _textHelper.DOKill();
-            _textHelper.gameObject.SetActive(true);
-            _textHelper.DOFade(1, .2f);
-            _touchControls.SetActive(false);
+            _nextStepTouch.SetDialogue(dialogue);
+            foreach (TextMeshProUGUI textHelper in _textHelpers)
+            {        
+                if(textHelper == null)
+                {
+                    continue;
+                }        
+                textHelper.DOKill();
+                textHelper.gameObject.SetActive(true);
+                textHelper.DOFade(1, .2f);
+            }
         }
 
         public void EndDialogue()
         {
             _nextStep.Disable();
             _skipDialogueButton.Disable();
-            _textHelper.DOFade(0, .2f).OnComplete(() => _textHelper.gameObject.SetActive(false));
-            #if UNITY_EDITOR
-                _touchControls.SetActive(true);
-            #else
-            if(Input.touchSupported)
+            foreach (TextMeshProUGUI textHelper in _textHelpers)
             {
-                _touchControls.SetActive(true);
+                if(textHelper == null)
+                {
+                    continue;
+                }   
+                textHelper.DOFade(0, .2f).OnComplete(() => textHelper.gameObject.SetActive(false));
             }
-            #endif
         }
     }
 }
